@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_main"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="#59000000"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="8dp"
+        android:paddingTop="32dp"
+        android:paddingRight="8dp"
+        android:paddingBottom="32dp">
+
+        <TextView
+            android:id="@+id/main_tv_potion_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/main_tv_potions_per_second"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#BFFFFFFF"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <com.theelixirist.f112813.views.PixelPerfectImageButton
+        android:id="@+id/main_ppib_potion_sprite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/cont_desc_none"
+        app:srcCompat="@drawable/ic_potion_red" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#5A000000"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <ImageButton
+            android:id="@+id/main_ib_trophies"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_weight="0.6"
+            android:background="#00FFFFFF"
+            android:contentDescription="@string/cont_desc_none"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_trophies" />
+
+        <View
+            android:id="@+id/main_divider"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.6"
+            android:background="?android:attr/listDivider"
+            android:backgroundTint="#00FFFFFF" />
+
+        <ImageButton
+            android:id="@+id/main_ib_quests"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_weight="0.6"
+            android:background="#00FFFFFF"
+            android:contentDescription="@string/cont_desc_none"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_quests" />
+
+        <View
+            android:id="@+id/main_divider2"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.6"
+            android:background="?android:attr/listDivider"
+            android:backgroundTint="#00FFFFFF" />
+
+        <ImageButton
+            android:id="@+id/main_ib_market"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_weight="0.6"
+            android:background="#00FFFFFF"
+            android:contentDescription="@string/cont_desc_none"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_market" />
+
+    </LinearLayout>
+</RelativeLayout>

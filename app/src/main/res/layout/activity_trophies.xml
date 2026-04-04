@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_trophies"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="#59000000"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:letterSpacing="0.1"
+            android:text="@string/trophies_title"
+            android:textColor="#FFFFFF"
+            android:textSize="34sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#5A000000"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <ImageButton
+            android:id="@+id/trophies_ib_main"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_weight="0.6"
+            android:background="#00FFFFFF"
+            android:contentDescription="@string/cont_desc_none"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_potion_red" />
+
+        <View
+            android:id="@+id/trophies_divider"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.6"
+            android:background="?android:attr/listDivider"
+            android:backgroundTint="#00FFFFFF" />
+
+        <ImageButton
+            android:id="@+id/trophies_ib_quests"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_weight="0.6"
+            android:background="#00FFFFFF"
+            android:contentDescription="@string/cont_desc_none"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_quests" />
+
+        <View
+            android:id="@+id/trophies_divider2"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.6"
+            android:background="?android:attr/listDivider"
+            android:backgroundTint="#00FFFFFF" />
+
+        <ImageButton
+            android:id="@+id/trophies_ib_market"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_weight="0.6"
+            android:background="#00FFFFFF"
+            android:contentDescription="@string/cont_desc_none"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_market" />
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">The Elixirist</string>
+
+    <string name="cont_desc_none">None</string>
+
+    // Main
+    <string name="potion_count_label">%1$s Potions</string>
+    <string name="potions_per_second_label">per second: %1$s</string>
+
+    // Market
+    <string name="market_title">Market</string>
+
+    // Quests
+    <string name="quests_title">Quests</string>
+
+    // Trophies
+    <string name="trophies_title">Trophies</string>
+</resources>
