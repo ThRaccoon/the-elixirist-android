@@ -35,7 +35,7 @@ public class AudioManager {
         if (instance == null) {
             synchronized (AudioManager.class) {
                 if (instance == null) {
-                    instance = new AudioManager(context);
+                    instance = new AudioManager(context.getApplicationContext());
                 }
             }
         }

@@ -12,7 +12,8 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
 import com.theelixirist.f112813.R;
-import com.theelixirist.f112813.game.NumberFormatter;
+import com.theelixirist.f112813.game.math.BigDouble;
+import com.theelixirist.f112813.game.math.NumberFormatter;
 import com.theelixirist.f112813.managers.AudioManager;
 import com.theelixirist.f112813.views.PixelPerfectImageButton;
 
@@ -26,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
     ImageButton ibMarket;
 
     // Game Vars
-    double totalPotions = 0;
-    double potionsPerClick = 1;
-    double potionsPerSecond = 0;
+    BigDouble totalPotions = new BigDouble(0, 0);
+    BigDouble potionsPerClick = new BigDouble(1, 0);
+    BigDouble potionsPerSecond = new BigDouble(0, 0);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,8 +105,8 @@ public class MainActivity extends AppCompatActivity {
         AudioManager.getInstance(this).play("tab_switch", 1);
     }
 
-    private void incrementPotions(double amount) {
-        totalPotions += amount;
+    private void incrementPotions(BigDouble amount) {
+        totalPotions.add(amount);
         updateUI();
     }
 
