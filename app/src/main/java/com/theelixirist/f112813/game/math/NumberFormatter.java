@@ -8,7 +8,7 @@ public class NumberFormatter {
 
     public static String format(BigDouble number) {
         if (number.getExponent() < 3) {
-            double rawValue = number.getMantissa() * Math.pow(10, number.getExponent());
+            double rawValue = number.getSignificand() * Math.pow(10, number.getExponent());
 
             if (Math.abs(Math.round(rawValue) - rawValue) < 1e-9) {
                 return String.valueOf((long) rawValue);
@@ -22,7 +22,7 @@ public class NumberFormatter {
             suffixIndex = suffixes.length;
         }
 
-        double displayMantissa = number.getMantissa() * Math.pow(10, number.getExponent() % 3);
+        double displayMantissa = number.getSignificand() * Math.pow(10, number.getExponent() % 3);
 
         return String.format(Locale.US, "%.2f%s", displayMantissa, suffixes[suffixIndex - 1]);
     }
