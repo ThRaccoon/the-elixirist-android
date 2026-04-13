@@ -14,7 +14,6 @@ import org.junit.Test;
 public class BigDoubleTest {
     private static final double EPSILON = 1e-9;
 
-
     // <editor-fold desc="add">
 
     @Test
@@ -91,7 +90,6 @@ public class BigDoubleTest {
 
     // </editor-fold>
 
-
     // <editor-fold desc="multiply">
 
     @Test
@@ -150,7 +148,6 @@ public class BigDoubleTest {
 
     // </editor-fold>
 
-
     // <editor-fold desc="divide">
 
     @Test
@@ -208,7 +205,6 @@ public class BigDoubleTest {
     }
 
     // </editor-fold>
-
 
     // <editor-fold desc="compareTo">
 
@@ -349,7 +345,6 @@ public class BigDoubleTest {
     }
 
     // </editor-fold>
-
 
     // <editor-fold desc="normalize">
 
