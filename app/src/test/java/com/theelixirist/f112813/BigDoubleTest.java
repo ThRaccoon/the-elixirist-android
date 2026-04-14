@@ -35,7 +35,7 @@ public class BigDoubleTest {
     }
 
     @Test
-    public void add_expDiffIsMoreThanPos16_thisUnchanged() {
+    public void add_expDiffIsMoreThan16_thisUnchanged() {
         BigDouble a = new BigDouble(1.2, 30);
         a.add(4.5, 6);
 
@@ -44,7 +44,7 @@ public class BigDoubleTest {
     }
 
     @Test
-    public void add_expDiffIsEqualToPos16_thisUnchanged() {
+    public void add_expDiffIsEqualTo16_thisUnchanged() {
         BigDouble a = new BigDouble(1.2, 18);
         a.add(4.5, 2);
 
@@ -421,7 +421,7 @@ public class BigDoubleTest {
     }
 
     @Test
-    public void normalize_posSigBelowPos1AfterShift_sigAndExpNormalized() {
+    public void normalize_posSigSmallerThan1AfterShift_sigAndExpNormalized() {
         BigDouble a = new BigDouble(0.009999999999999998, 0);
 
         assertEquals(9.999999999999998, a.getSignificand(), EPSILON);
@@ -429,7 +429,7 @@ public class BigDoubleTest {
     }
 
     @Test
-    public void normalize_negSigAboveNeg1AfterShift_sigAndExpNormalized() {
+    public void normalize_negSigBiggerThanNeg1AfterShift_sigAndExpNormalized() {
         BigDouble a = new BigDouble(-0.009999999999999998, 0);
 
         assertEquals(-9.999999999999998, a.getSignificand(), EPSILON);
