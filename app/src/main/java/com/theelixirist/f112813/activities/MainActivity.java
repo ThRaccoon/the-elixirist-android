@@ -11,10 +11,10 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
+import com.theelixirist.f112813.ElixiristApp;
 import com.theelixirist.f112813.R;
 import com.theelixirist.f112813.game.math.BigDouble;
 import com.theelixirist.f112813.game.math.NumberFormatter;
-import com.theelixirist.f112813.managers.AudioManager;
 import com.theelixirist.f112813.views.PixelPerfectImageButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,9 +22,10 @@ public class MainActivity extends AppCompatActivity {
     TextView tvPotionCount;
     TextView tvPotionsPerSecond;
     PixelPerfectImageButton ppibPotionSprite;
-    ImageButton ibTrophies;
-    ImageButton ibQuests;
+    ImageButton ibPotion;
     ImageButton ibMarket;
+    ImageButton ibQuests;
+    ImageButton ibTrophies;
 
     // Game Vars
     BigDouble totalPotions = new BigDouble(0, 0);
@@ -46,23 +47,24 @@ public class MainActivity extends AppCompatActivity {
         tvPotionCount = findViewById(R.id.main_tv_potion_count);
         tvPotionsPerSecond = findViewById(R.id.main_tv_potions_per_second);
         ppibPotionSprite = findViewById(R.id.main_ppib_potion_sprite);
-        ibTrophies = findViewById(R.id.main_ib_trophies);
-        ibQuests = findViewById(R.id.main_ib_quests);
+        ibPotion = findViewById(R.id.main_ib_potion);
         ibMarket = findViewById(R.id.main_ib_market);
+        ibQuests = findViewById(R.id.main_ib_quests);
+        ibTrophies = findViewById(R.id.main_ib_trophies);
 
         updateUI();
-        AudioManager.getInstance(this);
 
-        ppibPotionSprite.setOnClickListener(v -> onPotionPressed());
-        ibTrophies.setOnClickListener(v -> onTrophiesPressed());
-        ibQuests.setOnClickListener(v -> onQuestsPressed());
-        ibMarket.setOnClickListener(v -> onMarketPressed());
+        ppibPotionSprite.setOnClickListener(v -> onBrew());
+        ibPotion.setOnClickListener(v -> onPotionClicked());
+        ibMarket.setOnClickListener(v -> onMarketClicked());
+        ibQuests.setOnClickListener(v -> onQuestsClicked());
+        ibTrophies.setOnClickListener(v -> onTrophiesClicked());
     }
 
-    private void onPotionPressed() {
+    private void onBrew() {
         incrementPotions(potionsPerClick);
 
-        AudioManager.getInstance(this).play("brew", 1);
+        ElixiristApp.get(this).getAudioManager().play("brew", 1);
 
         ppibPotionSprite.animate().cancel();
         ppibPotionSprite.setScaleX(1.0f);
@@ -78,31 +80,35 @@ public class MainActivity extends AppCompatActivity {
                         .start()).start();
     }
 
-    private void onTrophiesPressed() {
-        Intent intent = new Intent(MainActivity.this, TrophiesActivity.class);
-        startActivity(intent);
-
-        overridePendingTransition(0, 0);
-
-        AudioManager.getInstance(this).play("tab_switch", 1);
+    private void onPotionClicked() {
+        ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
     }
 
-    private void onQuestsPressed() {
-        Intent intent = new Intent(MainActivity.this, QuestsActivity.class);
-        startActivity(intent);
-
-        overridePendingTransition(0, 0);
-
-        AudioManager.getInstance(this).play("tab_switch", 1);
-    }
-
-    private void onMarketPressed() {
+    private void onMarketClicked() {
         Intent intent = new Intent(MainActivity.this, MarketActivity.class);
         startActivity(intent);
 
         overridePendingTransition(0, 0);
 
-        AudioManager.getInstance(this).play("tab_switch", 1);
+        ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
+    }
+
+    private void onQuestsClicked() {
+        Intent intent = new Intent(MainActivity.this, QuestsActivity.class);
+        startActivity(intent);
+
+        overridePendingTransition(0, 0);
+
+        ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
+    }
+
+    private void onTrophiesClicked() {
+        Intent intent = new Intent(MainActivity.this, TrophiesActivity.class);
+        startActivity(intent);
+
+        overridePendingTransition(0, 0);
+
+        ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
     }
 
     private void incrementPotions(BigDouble amount) {

@@ -24,17 +24,10 @@ public class NumberFormatterTest {
     }
 
     @Test
-    public void format_sigIsIntegerExpIsSmallerThan3_Integer() {
-        BigDouble a = new BigDouble(1, 0);
-
-        assertEquals("1", NumberFormatter.format(a));
-    }
-
-    @Test
-    public void format_sigIsDecimalExpIsSmallerThan3_Decimal() {
+    public void format_expIsSmallerThan3_Integer() {
         BigDouble a = new BigDouble(1.23, 1);
 
-        assertEquals("12.30", NumberFormatter.format(a));
+        assertEquals("12", NumberFormatter.format(a));
     }
 
     @Test

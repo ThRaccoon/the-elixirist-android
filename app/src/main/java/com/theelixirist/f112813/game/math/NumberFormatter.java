@@ -16,12 +16,7 @@ public class NumberFormatter {
 
         if (number.getExponent() < 3) {
             double rawValue = number.getSignificand() * Math.pow(10, number.getExponent());
-
-            if (Math.abs(Math.round(rawValue) - rawValue) < 1e-9) {
-                return String.valueOf((long) rawValue);
-            } else {
-                return String.format(Locale.US, "%.2f", rawValue);
-            }
+            return String.format(Locale.US, "%.0f", rawValue);
         }
 
         int suffixIndex = (int) (number.getExponent() / 3);
@@ -30,7 +25,6 @@ public class NumberFormatter {
         }
 
         double displaySignificand = number.getSignificand() * Math.pow(10, number.getExponent() % 3);
-
         return String.format(Locale.US, "%.2f%s", displaySignificand, suffixes[suffixIndex - 1]);
     }
 }

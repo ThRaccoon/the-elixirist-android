@@ -10,14 +10,15 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
+import com.theelixirist.f112813.ElixiristApp;
 import com.theelixirist.f112813.R;
-import com.theelixirist.f112813.managers.AudioManager;
 
 public class MarketActivity extends AppCompatActivity {
     // Views
-    ImageButton ibTrophies;
+    ImageButton ibPotion;
+    ImageButton ibMarket;
     ImageButton ibQuests;
-    ImageButton ibMain;
+    ImageButton ibTrophies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,41 +32,45 @@ public class MarketActivity extends AppCompatActivity {
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
         windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
 
-        AudioManager.getInstance(this);
-
-        ibTrophies = findViewById(R.id.market_ib_trophies);
+        ibPotion = findViewById(R.id.market_ib_potion);
+        ibMarket = findViewById(R.id.market_ib_market);
         ibQuests = findViewById(R.id.market_ib_quests);
-        ibMain = findViewById(R.id.market_ib_main);
+        ibTrophies = findViewById(R.id.market_ib_trophies);
 
-        ibTrophies.setOnClickListener(v -> onTrophiesPressed());
-        ibQuests.setOnClickListener(v -> onQuestsPressed());
-        ibMain.setOnClickListener(v -> onMainPressed());
+        ibPotion.setOnClickListener(v -> onPotionClicked());
+        ibMarket.setOnClickListener(v -> onMarketClicked());
+        ibQuests.setOnClickListener(v -> onQuestsClicked());
+        ibTrophies.setOnClickListener(v -> onTrophiesClicked());
     }
 
-    private void onTrophiesPressed() {
-        Intent intent = new Intent(MarketActivity.this, TrophiesActivity.class);
-        startActivity(intent);
-
-        overridePendingTransition(0, 0);
-
-        AudioManager.getInstance(this).play("tab_switch", 1);
-    }
-
-    private void onQuestsPressed() {
-        Intent intent = new Intent(MarketActivity.this, QuestsActivity.class);
-        startActivity(intent);
-
-        overridePendingTransition(0, 0);
-
-        AudioManager.getInstance(this).play("tab_switch", 1);
-    }
-
-    private void onMainPressed() {
+    private void onPotionClicked() {
         Intent intent = new Intent(MarketActivity.this, MainActivity.class);
         startActivity(intent);
 
         overridePendingTransition(0, 0);
 
-        AudioManager.getInstance(this).play("tab_switch", 1);
+        ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
+    }
+
+    private void onMarketClicked() {
+        ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
+    }
+
+    private void onQuestsClicked() {
+        Intent intent = new Intent(MarketActivity.this, QuestsActivity.class);
+        startActivity(intent);
+
+        overridePendingTransition(0, 0);
+
+        ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
+    }
+
+    private void onTrophiesClicked() {
+        Intent intent = new Intent(MarketActivity.this, TrophiesActivity.class);
+        startActivity(intent);
+
+        overridePendingTransition(0, 0);
+
+        ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
     }
 }

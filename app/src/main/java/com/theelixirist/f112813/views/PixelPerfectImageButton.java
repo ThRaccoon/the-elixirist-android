@@ -23,12 +23,25 @@ public class PixelPerfectImageButton extends androidx.appcompat.widget.AppCompat
 
             Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
 
-            int x = (int) (event.getX() * bitmap.getWidth() / getWidth());
-            int y = (int) (event.getY() * bitmap.getHeight() / getHeight());
+            float scale = Math.min(
+                    (float) getWidth() / bitmap.getWidth(),
+                    (float) getHeight() / bitmap.getHeight()
+            );
+
+            float scaledWidth = bitmap.getWidth() * scale;
+            float scaledHeight = bitmap.getHeight() * scale;
+
+            float offsetX = (getWidth() - scaledWidth) / 2f;
+            float offsetY = (getHeight() - scaledHeight) / 2f;
+
+            float bitmapX = (event.getX() - offsetX) / scale;
+            float bitmapY = (event.getY() - offsetY) / scale;
+
+            int x = (int) bitmapX;
+            int y = (int) bitmapY;
 
             if (x >= 0 && x < bitmap.getWidth() && y >= 0 && y < bitmap.getHeight()) {
                 int pixel = bitmap.getPixel(x, y);
-
                 if (Color.alpha(pixel) > 0) {
                     performClick();
                     return true;

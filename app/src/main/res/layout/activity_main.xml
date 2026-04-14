@@ -8,6 +8,7 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/container_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -41,12 +42,16 @@
         android:id="@+id/main_ppib_potion_sprite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@id/container_bottom"
+        android:layout_below="@id/container_top"
         android:layout_centerInParent="true"
         android:background="#00FFFFFF"
         android:contentDescription="@string/cont_desc_none"
+        android:scaleType="fitCenter"
         app:srcCompat="@drawable/ic_potion_red" />
 
     <LinearLayout
+        android:id="@+id/container_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -54,39 +59,33 @@
         android:orientation="horizontal"
         android:padding="8dp">
 
-        <ImageButton
-            android:id="@+id/main_ib_trophies"
+        <LinearLayout
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:layout_weight="0.6"
-            android:background="#00FFFFFF"
-            android:contentDescription="@string/cont_desc_none"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_trophies" />
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/main_ib_potion"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="#00FFFFFF"
+                android:contentDescription="@string/cont_desc_none"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_potion_red" />
+
+            <View
+                android:layout_width="4dp"
+                android:layout_height="4dp"
+                android:background="#FFFFFF" />
+
+        </LinearLayout>
 
         <View
-            android:id="@+id/main_divider"
             android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.6"
-            android:background="?android:attr/listDivider"
-            android:backgroundTint="#00FFFFFF" />
-
-        <ImageButton
-            android:id="@+id/main_ib_quests"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_weight="0.6"
-            android:background="#00FFFFFF"
-            android:contentDescription="@string/cont_desc_none"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_quests" />
-
-        <View
-            android:id="@+id/main_divider2"
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1.6"
+            android:layout_weight="2"
             android:background="?android:attr/listDivider"
             android:backgroundTint="#00FFFFFF" />
 
@@ -94,11 +93,45 @@
             android:id="@+id/main_ib_market"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:layout_weight="0.6"
+            android:layout_weight="1"
             android:background="#00FFFFFF"
             android:contentDescription="@string/cont_desc_none"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/ic_market" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="?android:attr/listDivider"
+            android:backgroundTint="#00FFFFFF" />
+
+        <ImageButton
+            android:id="@+id/main_ib_quests"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:background="#00FFFFFF"
+            android:contentDescription="@string/cont_desc_none"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_quests" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="?android:attr/listDivider"
+            android:backgroundTint="#00FFFFFF" />
+
+        <ImageButton
+            android:id="@+id/main_ib_trophies"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:background="#00FFFFFF"
+            android:contentDescription="@string/cont_desc_none"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_trophies" />
 
     </LinearLayout>
 </RelativeLayout>

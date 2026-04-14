@@ -41,20 +41,48 @@
         android:padding="8dp">
 
         <ImageButton
-            android:id="@+id/market_ib_trophies"
+            android:id="@+id/market_ib_potion"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:layout_weight="0.6"
+            android:layout_weight="1"
             android:background="#00FFFFFF"
             android:contentDescription="@string/cont_desc_none"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_trophies" />
+            app:srcCompat="@drawable/ic_potion_red" />
 
         <View
-            android:id="@+id/market_divider"
             android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.6"
+            android:layout_weight="2"
+            android:background="?android:attr/listDivider"
+            android:backgroundTint="#00FFFFFF" />
+
+        <LinearLayout
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/market_ib_market"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="#00FFFFFF"
+                android:contentDescription="@string/cont_desc_none"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_market" />
+
+            <View
+                android:layout_width="4dp"
+                android:layout_height="4dp"
+                android:background="#FFFFFF" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
             android:background="?android:attr/listDivider"
             android:backgroundTint="#00FFFFFF" />
 
@@ -62,29 +90,29 @@
             android:id="@+id/market_ib_quests"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:layout_weight="0.6"
+            android:layout_weight="1"
             android:background="#00FFFFFF"
             android:contentDescription="@string/cont_desc_none"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/ic_quests" />
 
         <View
-            android:id="@+id/market_divider2"
             android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.6"
+            android:layout_weight="2"
             android:background="?android:attr/listDivider"
             android:backgroundTint="#00FFFFFF" />
 
         <ImageButton
-            android:id="@+id/market_ib_main"
+            android:id="@+id/market_ib_trophies"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:layout_weight="0.6"
+            android:layout_weight="1"
             android:background="#00FFFFFF"
             android:contentDescription="@string/cont_desc_none"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_potion_red" />
+            app:srcCompat="@drawable/ic_trophies" />
 
     </LinearLayout>
+
 </RelativeLayout>
