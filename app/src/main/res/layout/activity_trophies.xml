@@ -24,7 +24,6 @@
             android:text="@string/trophies_title"
             android:textColor="#FFFFFF"
             android:textSize="34sp" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -107,7 +106,5 @@
                 android:layout_height="4dp"
                 android:background="#FFFFFF" />
         </LinearLayout>
-
     </LinearLayout>
-
 </RelativeLayout>

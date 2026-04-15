@@ -43,7 +43,6 @@
             android:textColor="#BFFFFFFF"
             android:textSize="14sp"
             tools:text="Item description" />
-
     </LinearLayout>
 
     <TextView
@@ -70,5 +69,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="135K" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

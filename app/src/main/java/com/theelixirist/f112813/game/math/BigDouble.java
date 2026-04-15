@@ -2,14 +2,14 @@ package com.theelixirist.f112813.game.math;
 
 public class BigDouble {
     private double significand;
-    private long exponent;
+    private int exponent;
 
     public BigDouble(BigDouble other) {
         significand = other.significand;
         exponent = other.exponent;
     }
 
-    public BigDouble(double significand, long exponent) {
+    public BigDouble(double significand, int exponent) {
         this.significand = significand;
         this.exponent = exponent;
         normalize();
@@ -24,11 +24,11 @@ public class BigDouble {
         normalize();
     }
 
-    public long getExponent() {
+    public int getExponent() {
         return exponent;
     }
 
-    public void setExponent(long exponent) {
+    public void setExponent(int exponent) {
         this.exponent = exponent;
         normalize();
     }
@@ -37,7 +37,7 @@ public class BigDouble {
         add(other.significand, other.exponent);
     }
 
-    public void add(double significand, long exponent) {
+    public void add(double significand, int exponent) {
         if (significand == 0) { return; }
 
         if (this.significand == 0) {
@@ -46,7 +46,7 @@ public class BigDouble {
             return;
         }
 
-        long expDiff = this.exponent - exponent;
+        int expDiff = this.exponent - exponent;
 
         if (expDiff >= 16) { return; }
 
@@ -65,7 +65,7 @@ public class BigDouble {
         add(-other.significand, other.exponent);
     }
 
-    public void subtract(double significand, long exponent) {
+    public void subtract(double significand, int exponent) {
         add(-significand, exponent);
     }
 
@@ -73,7 +73,7 @@ public class BigDouble {
         multiply(other.significand, other.exponent);
     }
 
-    public void multiply(double significand, long exponent) {
+    public void multiply(double significand, int exponent) {
         if (significand == 0) { return; }
         if (this.significand == 0) { return; }
 
@@ -87,7 +87,7 @@ public class BigDouble {
         divide(other.significand, other.exponent);
     }
 
-    public void divide(double significand, long exponent) {
+    public void divide(double significand, int exponent) {
         if (significand == 0) { return; }
         if (this.significand == 0) { return; }
 
@@ -120,7 +120,7 @@ public class BigDouble {
             return;
         }
 
-        long shift = (long) Math.floor(Math.log10(Math.abs(significand)));
+        int shift = (int) Math.floor(Math.log10(Math.abs(significand)));
 
         if (shift != 0) {
             exponent += shift;

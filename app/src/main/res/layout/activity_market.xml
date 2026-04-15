@@ -24,7 +24,6 @@
             android:text="@string/market_title"
             android:textColor="#FFFFFF"
             android:textSize="34sp" />
-
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -112,7 +111,5 @@
             android:contentDescription="@string/cont_desc_none"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/ic_trophies" />
-
     </LinearLayout>
-
 </RelativeLayout>
