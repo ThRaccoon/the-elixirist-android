@@ -56,7 +56,7 @@ public class BigDouble {
             return;
         }
 
-        this.significand += significand / Math.pow(10, expDiff);
+        this.significand += significand / MathUtils.pow10(expDiff);
 
         normalize();
     }
@@ -118,13 +118,6 @@ public class BigDouble {
         if (significand == 0) {
             exponent = 0;
             return;
-        }
-
-        int shift = (int) Math.floor(Math.log10(Math.abs(significand)));
-
-        if (shift != 0) {
-            exponent += shift;
-            significand /= Math.pow(10, shift);
         }
 
         while (Math.abs(significand) >= 10.0) {

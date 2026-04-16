@@ -14,7 +14,7 @@ import androidx.core.view.WindowInsetsControllerCompat;
 import com.theelixirist.f112813.ElixiristApp;
 import com.theelixirist.f112813.R;
 import com.theelixirist.f112813.game.math.BigDouble;
-import com.theelixirist.f112813.game.math.NumberFormatter;
+import com.theelixirist.f112813.game.math.BigDoubleFormatter;
 import com.theelixirist.f112813.views.PixelPerfectImageButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -117,8 +117,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateUI() {
-        String formattedTotalPotions = NumberFormatter.format(totalPotions);
-        String formattedPotionsPerSecond = NumberFormatter.format(potionsPerSecond);
+        String formattedTotalPotions = BigDoubleFormatter.format(totalPotions);
+        String formattedPotionsPerSecond = BigDoubleFormatter.format(potionsPerSecond);
 
         tvPotionCount.setText(getString(R.string.potion_count_label, formattedTotalPotions));
         tvPotionsPerSecond.setText(getString(R.string.potions_per_second_label, formattedPotionsPerSecond));

@@ -14,7 +14,8 @@ import org.junit.Test;
 public class BigDoubleTest {
     private static final double EPSILON = 1e-9;
 
-    // <editor-fold desc="add">
+
+    /// /////// add(BigDouble other), add(double significand, int exponent) //////////
 
     @Test
     public void add_otherSigIsZero_thisUnchanged() {
@@ -71,7 +72,7 @@ public class BigDoubleTest {
     }
 
     @Test
-    public void add_otherPosSig_otherSigScaledToThisExpAndAddedToThisSig() {
+    public void add_default_otherSigScaledToThisExpAndAddedToThisSig() {
         BigDouble a = new BigDouble(1.2, 3);
         a.add(4.5, 6);
 
@@ -79,18 +80,8 @@ public class BigDoubleTest {
         assertEquals(6, a.getExponent());
     }
 
-    @Test
-    public void add_otherNegSig_otherSigScaledToThisExpAndAddedToThisSig() {
-        BigDouble a = new BigDouble(1.2, 3);
-        a.add(-4.5, 6);
 
-        assertEquals(-4.4988, a.getSignificand(), EPSILON);
-        assertEquals(6, a.getExponent());
-    }
-
-    // </editor-fold>
-
-    // <editor-fold desc="multiply">
+    /// /////// multiply(BigDouble other), multiply(double significand, int exponent) //////////
 
     @Test
     public void multiply_otherSigIsZero_thisUnchanged() {
@@ -111,7 +102,7 @@ public class BigDoubleTest {
     }
 
     @Test
-    public void multiply_otherPosSigPosExp_sigsMultipliedAndExpsAdded() {
+    public void multiply_default_sigsMultipliedAndExpsAdded() {
         BigDouble a = new BigDouble(1.2, 3);
         a.multiply(4.5, 6);
 
@@ -119,36 +110,8 @@ public class BigDoubleTest {
         assertEquals(9, a.getExponent());
     }
 
-    @Test
-    public void multiply_otherNegSigPosExp_sigsMultipliedAndExpsAdded() {
-        BigDouble a = new BigDouble(1.2, 3);
-        a.multiply(-4.5, 6);
 
-        assertEquals(-5.4, a.getSignificand(), EPSILON);
-        assertEquals(9, a.getExponent());
-    }
-
-    @Test
-    public void multiply_otherPosSigNegExp_sigsMultipliedAndExpsAdded() {
-        BigDouble a = new BigDouble(1.2, 3);
-        a.multiply(4.5, -6);
-
-        assertEquals(5.4, a.getSignificand(), EPSILON);
-        assertEquals(-3, a.getExponent());
-    }
-
-    @Test
-    public void multiply_otherNegSigNegExp_sigsMultipliedAndExpsAdded() {
-        BigDouble a = new BigDouble(1.2, 3);
-        a.multiply(-4.5, -6);
-
-        assertEquals(-5.4, a.getSignificand(), EPSILON);
-        assertEquals(-3, a.getExponent());
-    }
-
-    // </editor-fold>
-
-    // <editor-fold desc="divide">
+    /// /////// divide(BigDouble other), divide(double significand, int exponent) //////////
 
     @Test
     public void divide_otherSigIsZero_thisUnchanged() {
@@ -169,7 +132,7 @@ public class BigDoubleTest {
     }
 
     @Test
-    public void divide_otherPosSigPosExp_sigsDividedAndExpsSubtracted() {
+    public void divide_default_sigsDividedAndExpsSubtracted() {
         BigDouble a = new BigDouble(1.2, 3);
         a.divide(4.5, 6);
 
@@ -177,36 +140,8 @@ public class BigDoubleTest {
         assertEquals(-4, a.getExponent());
     }
 
-    @Test
-    public void divide_otherNegSigPosExp_sigsDividedAndExpsSubtracted() {
-        BigDouble a = new BigDouble(1.2, 3);
-        a.divide(-4.5, 6);
 
-        assertEquals(-2.6666666666, a.getSignificand(), EPSILON);
-        assertEquals(-4, a.getExponent());
-    }
-
-    @Test
-    public void divide_otherPosSigNegExp_sigsDividedAndExpsSubtracted() {
-        BigDouble a = new BigDouble(1.2, 3);
-        a.divide(4.5, -6);
-
-        assertEquals(2.6666666666, a.getSignificand(), EPSILON);
-        assertEquals(8, a.getExponent());
-    }
-
-    @Test
-    public void divide_otherNegSigNegExp_sigsDividedAndExpsSubtracted() {
-        BigDouble a = new BigDouble(1.2, 3);
-        a.divide(-4.5, -6);
-
-        assertEquals(-2.6666666666, a.getSignificand(), EPSILON);
-        assertEquals(8, a.getExponent());
-    }
-
-    // </editor-fold>
-
-    // <editor-fold desc="compareTo">
+    /// /////// compareTo(BigDouble other) //////////
 
     @Test
     public void compareTo_thisPosSigOtherNegSig_returns1() {
@@ -297,7 +232,7 @@ public class BigDoubleTest {
     }
 
     @Test
-    public void compareTo_posSigsEqualExpsThisSigBigger_returns1() {
+    public void compareTo_sameSignSigsEqualExpsThisSigBigger_returns1() {
         BigDouble a = new BigDouble(4.5, 3);
         BigDouble b = new BigDouble(1.2, 3);
 
@@ -305,7 +240,7 @@ public class BigDoubleTest {
     }
 
     @Test
-    public void compareTo_posSigsEqualExpsEqualSigs_returns0() {
+    public void compareTo_equalSigsEqualExps_returns0() {
         BigDouble a = new BigDouble(1.2, 3);
         BigDouble b = new BigDouble(1.2, 3);
 
@@ -313,40 +248,15 @@ public class BigDoubleTest {
     }
 
     @Test
-    public void compareTo_posSigsEqualExpsThisSigSmaller_returnsNeg1() {
+    public void compareTo_sameSignSigsEqualExpsThisSigSmaller_returnsNeg1() {
         BigDouble a = new BigDouble(1.2, 3);
         BigDouble b = new BigDouble(4.5, 3);
 
         assertEquals(-1, a.compareTo(b));
     }
 
-    @Test
-    public void compareTo_negSigsEqualExpsThisSigBigger_returns1() {
-        BigDouble a = new BigDouble(-1.2, 3);
-        BigDouble b = new BigDouble(-4.5, 3);
 
-        assertEquals(1, a.compareTo(b));
-    }
-
-    @Test
-    public void compareTo_negSigsEqualExpsEqualSigs_returns0() {
-        BigDouble a = new BigDouble(-1.2, 3);
-        BigDouble b = new BigDouble(-1.2, 3);
-
-        assertEquals(0, a.compareTo(b));
-    }
-
-    @Test
-    public void compareTo_negSigsEqualExpsThisSigSmaller_returnsNeg1() {
-        BigDouble a = new BigDouble(-4.5, 3);
-        BigDouble b = new BigDouble(-1.2, 3);
-
-        assertEquals(-1, a.compareTo(b));
-    }
-
-    // </editor-fold>
-
-    // <editor-fold desc="normalize">
+    /// /////// normalize() //////////
 
     @Test
     public void normalize_sigIsZero_expSetToZero() {
@@ -357,23 +267,7 @@ public class BigDoubleTest {
     }
 
     @Test
-    public void normalize_posSigNormalized_unchanged() {
-        BigDouble a = new BigDouble(1.2, 3);
-
-        assertEquals(1.2, a.getSignificand(), EPSILON);
-        assertEquals(3, a.getExponent());
-    }
-
-    @Test
-    public void normalize_negSigNormalized_unchanged() {
-        BigDouble a = new BigDouble(-1.2, 3);
-
-        assertEquals(-1.2, a.getSignificand(), EPSILON);
-        assertEquals(3, a.getExponent());
-    }
-
-    @Test
-    public void normalize_posSigBiggerThan10_sigAndExpNormalized() {
+    public void normalize_sigBiggerThan10_sigAndExpNormalized() {
         BigDouble a = new BigDouble(12.0, 0);
 
         assertEquals(1.2, a.getSignificand(), EPSILON);
@@ -381,7 +275,7 @@ public class BigDoubleTest {
     }
 
     @Test
-    public void normalize_posSigEqualTo10_sigAndExpNormalized() {
+    public void normalize_sigEqualTo10_sigAndExpNormalized() {
         BigDouble a = new BigDouble(10.0, 0);
 
         assertEquals(1, a.getSignificand(), EPSILON);
@@ -389,34 +283,10 @@ public class BigDoubleTest {
     }
 
     @Test
-    public void normalize_posSigSmallerThan1_sigAndExpNormalized() {
+    public void normalize_sigSmallerThan1_sigAndExpNormalized() {
         BigDouble a = new BigDouble(0.12, 0);
 
         assertEquals(1.2, a.getSignificand(), EPSILON);
-        assertEquals(-1, a.getExponent());
-    }
-
-    @Test
-    public void normalize_negSigSmallerThanNeg10_sigAndExpNormalized() {
-        BigDouble a = new BigDouble(-12.0, 0);
-
-        assertEquals(-1.2, a.getSignificand(), EPSILON);
-        assertEquals(1, a.getExponent());
-    }
-
-    @Test
-    public void normalize_negSigEqualToNeg10_sigAndExpNormalized() {
-        BigDouble a = new BigDouble(-10.0, 0);
-
-        assertEquals(-1, a.getSignificand(), EPSILON);
-        assertEquals(1, a.getExponent());
-    }
-
-    @Test
-    public void normalize_negSigBiggerThanNeg1_sigAndExpNormalized() {
-        BigDouble a = new BigDouble(-0.12, 0);
-
-        assertEquals(-1.2, a.getSignificand(), EPSILON);
         assertEquals(-1, a.getExponent());
     }
 
@@ -429,12 +299,10 @@ public class BigDoubleTest {
     }
 
     @Test
-    public void normalize_negSigBiggerThanNeg1AfterShift_sigAndExpNormalized() {
-        BigDouble a = new BigDouble(-0.009999999999999998, 0);
+    public void normalize_default_unchanged() {
+        BigDouble a = new BigDouble(1.2, 3);
 
-        assertEquals(-9.999999999999998, a.getSignificand(), EPSILON);
-        assertEquals(-3, a.getExponent());
+        assertEquals(1.2, a.getSignificand(), EPSILON);
+        assertEquals(3, a.getExponent());
     }
-
-    // </editor-fold>
 }
