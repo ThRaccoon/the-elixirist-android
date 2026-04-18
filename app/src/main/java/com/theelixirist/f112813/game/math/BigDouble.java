@@ -15,6 +15,11 @@ public class BigDouble {
         normalize();
     }
 
+    public BigDouble(double value) {
+        this.significand = value;
+        normalize();
+    }
+
     public double getSignificand() {
         return significand;
     }

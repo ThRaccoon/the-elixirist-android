@@ -22,9 +22,10 @@ public class MainActivity extends AppCompatActivity {
     TextView tvPotionCount;
     TextView tvPotionsPerSecond;
     PixelPerfectImageButton ppibPotionSprite;
-    ImageButton ibPotion;
+    ImageButton ibMain;
     ImageButton ibMarket;
     ImageButton ibQuests;
+    ImageButton ibStats;
     ImageButton ibTrophies;
 
     // Game Vars
@@ -47,17 +48,19 @@ public class MainActivity extends AppCompatActivity {
         tvPotionCount = findViewById(R.id.main_tv_potion_count);
         tvPotionsPerSecond = findViewById(R.id.main_tv_potions_per_second);
         ppibPotionSprite = findViewById(R.id.main_ppib_potion_sprite);
-        ibPotion = findViewById(R.id.main_ib_potion);
+        ibMain = findViewById(R.id.main_ib_main);
         ibMarket = findViewById(R.id.main_ib_market);
         ibQuests = findViewById(R.id.main_ib_quests);
+        ibStats = findViewById(R.id.main_ib_stats);
         ibTrophies = findViewById(R.id.main_ib_trophies);
 
         updateUI();
 
         ppibPotionSprite.setOnClickListener(v -> onBrew());
-        ibPotion.setOnClickListener(v -> onPotionClicked());
+        ibMain.setOnClickListener(v -> onMainClicked());
         ibMarket.setOnClickListener(v -> onMarketClicked());
         ibQuests.setOnClickListener(v -> onQuestsClicked());
+        ibStats.setOnClickListener(v -> onStatsClicked());
         ibTrophies.setOnClickListener(v -> onTrophiesClicked());
     }
 
@@ -80,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                         .start()).start();
     }
 
-    private void onPotionClicked() {
+    private void onMainClicked() {
         ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
     }
 
@@ -95,6 +98,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void onQuestsClicked() {
         Intent intent = new Intent(MainActivity.this, QuestsActivity.class);
+        startActivity(intent);
+
+        overridePendingTransition(0, 0);
+
+        ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
+    }
+
+    private void onStatsClicked() {
+        Intent intent = new Intent(MainActivity.this, StatsActivity.class);
         startActivity(intent);
 
         overridePendingTransition(0, 0);

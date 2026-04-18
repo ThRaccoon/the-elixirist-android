@@ -13,7 +13,7 @@ import androidx.core.view.WindowInsetsControllerCompat;
 import com.theelixirist.f112813.ElixiristApp;
 import com.theelixirist.f112813.R;
 
-public class QuestsActivity extends AppCompatActivity {
+public class StatsActivity extends AppCompatActivity {
     // Views
     ImageButton ibPotion;
     ImageButton ibMarket;
@@ -25,7 +25,7 @@ public class QuestsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_quests);
+        setContentView(R.layout.activity_stats);
 
         WindowInsetsControllerCompat windowInsetsController =
                 WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
@@ -33,11 +33,11 @@ public class QuestsActivity extends AppCompatActivity {
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
         windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
 
-        ibPotion = findViewById(R.id.quests_ib_main);
-        ibMarket = findViewById(R.id.quests_ib_market);
-        ibQuests = findViewById(R.id.quests_ib_quests);
-        ibStats = findViewById(R.id.quests_ib_stats);
-        ibTrophies = findViewById(R.id.quests_ib_trophies);
+        ibPotion = findViewById(R.id.stats_ib_main);
+        ibMarket = findViewById(R.id.stats_ib_market);
+        ibQuests = findViewById(R.id.stats_ib_quests);
+        ibStats = findViewById(R.id.stats_ib_stats);
+        ibTrophies = findViewById(R.id.stats_ib_trophies);
 
         ibPotion.setOnClickListener(v -> onMainClicked());
         ibMarket.setOnClickListener(v -> onMarketClicked());
@@ -47,7 +47,7 @@ public class QuestsActivity extends AppCompatActivity {
     }
 
     private void onMainClicked() {
-        Intent intent = new Intent(QuestsActivity.this, MainActivity.class);
+        Intent intent = new Intent(StatsActivity.this, MainActivity.class);
         startActivity(intent);
 
         overridePendingTransition(0, 0);
@@ -56,7 +56,7 @@ public class QuestsActivity extends AppCompatActivity {
     }
 
     private void onMarketClicked() {
-        Intent intent = new Intent(QuestsActivity.this, MarketActivity.class);
+        Intent intent = new Intent(StatsActivity.this, MarketActivity.class);
         startActivity(intent);
 
         overridePendingTransition(0, 0);
@@ -65,11 +65,7 @@ public class QuestsActivity extends AppCompatActivity {
     }
 
     private void onQuestsClicked() {
-        ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
-    }
-
-    private void onStatsClicked() {
-        Intent intent = new Intent(QuestsActivity.this, StatsActivity.class);
+        Intent intent = new Intent(StatsActivity.this, QuestsActivity.class);
         startActivity(intent);
 
         overridePendingTransition(0, 0);
@@ -77,8 +73,12 @@ public class QuestsActivity extends AppCompatActivity {
         ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
     }
 
+    private void onStatsClicked() {
+        ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
+    }
+
     private void onTrophiesClicked() {
-        Intent intent = new Intent(QuestsActivity.this, TrophiesActivity.class);
+        Intent intent = new Intent(StatsActivity.this, TrophiesActivity.class);
         startActivity(intent);
 
         overridePendingTransition(0, 0);

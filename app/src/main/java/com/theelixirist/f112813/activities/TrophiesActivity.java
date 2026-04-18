@@ -18,6 +18,7 @@ public class TrophiesActivity extends AppCompatActivity {
     ImageButton ibPotion;
     ImageButton ibMarket;
     ImageButton ibQuests;
+    ImageButton ibStats;
     ImageButton ibTrophies;
 
     @Override
@@ -32,18 +33,20 @@ public class TrophiesActivity extends AppCompatActivity {
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
         windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
 
-        ibPotion = findViewById(R.id.trophies_ib_potion);
+        ibPotion = findViewById(R.id.trophies_ib_main);
         ibMarket = findViewById(R.id.trophies_ib_market);
         ibQuests = findViewById(R.id.trophies_ib_quests);
+        ibStats = findViewById(R.id.trophies_ib_stats);
         ibTrophies = findViewById(R.id.trophies_ib_trophies);
 
-        ibPotion.setOnClickListener(v -> onPotionClicked());
+        ibPotion.setOnClickListener(v -> onMainClicked());
         ibMarket.setOnClickListener(v -> onMarketClicked());
         ibQuests.setOnClickListener(v -> onQuestsClicked());
+        ibStats.setOnClickListener(v -> onStatsClicked());
         ibTrophies.setOnClickListener(v -> onTrophiesClicked());
     }
 
-    private void onPotionClicked() {
+    private void onMainClicked() {
         Intent intent = new Intent(TrophiesActivity.this, MainActivity.class);
         startActivity(intent);
 
@@ -63,6 +66,15 @@ public class TrophiesActivity extends AppCompatActivity {
 
     private void onQuestsClicked() {
         Intent intent = new Intent(TrophiesActivity.this, QuestsActivity.class);
+        startActivity(intent);
+
+        overridePendingTransition(0, 0);
+
+        ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
+    }
+
+    private void onStatsClicked() {
+        Intent intent = new Intent(TrophiesActivity.this, StatsActivity.class);
         startActivity(intent);
 
         overridePendingTransition(0, 0);

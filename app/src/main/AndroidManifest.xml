@@ -31,6 +31,10 @@
             android:exported="false" />
 
         <activity
+            android:name=".activities.StatsActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".activities.TrophiesActivity"
             android:exported="false" />
     </application>
