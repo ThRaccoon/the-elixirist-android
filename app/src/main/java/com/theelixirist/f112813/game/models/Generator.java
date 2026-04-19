@@ -9,20 +9,27 @@ public class Generator {
     private final int nameResId;
     private final int descResId;
 
-    private final BigDouble basePrice;
+    private final BigDouble baseCost;
+    private final float costGrowthRate;
+
     private final BigDouble baseYieldPerSecond;
 
-    private final float costMultiplier;
-
-    public Generator(int id, int iconResId, int nameResId, int descResId, BigDouble basePrice,
-                     BigDouble baseYieldPerSecond, float costMultiplier) {
+    public Generator(
+            int id,
+            int iconResId,
+            int nameResId,
+            int descResId,
+            BigDouble baseCost,
+            float costGrowthRate,
+            BigDouble baseYieldPerSecond
+    ) {
         this.id = id;
         this.iconResId = iconResId;
         this.nameResId = nameResId;
         this.descResId = descResId;
-        this.basePrice = basePrice;
+        this.baseCost = baseCost;
+        this.costGrowthRate = costGrowthRate;
         this.baseYieldPerSecond = baseYieldPerSecond;
-        this.costMultiplier = costMultiplier;
     }
 
     public int getId() {
@@ -41,15 +48,15 @@ public class Generator {
         return descResId;
     }
 
-    public BigDouble getBasePrice() {
-        return basePrice;
+    public BigDouble getBaseCost() {
+        return baseCost;
+    }
+
+    public float getCostGrowthRate() {
+        return costGrowthRate;
     }
 
     public BigDouble getBaseYieldPerSecond() {
         return baseYieldPerSecond;
-    }
-
-    public float getCostMultiplier() {
-        return costMultiplier;
     }
 }

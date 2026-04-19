@@ -1,42 +1,44 @@
 package com.theelixirist.f112813.game.models;
 
+import com.theelixirist.f112813.game.math.BigDouble;
+
 import java.util.Set;
 
-public class Effect {
+public class Upgrade {
     private final int id;
 
     private final int iconResId;
     private final int nameResId;
     private final int descResId;
 
-    private final double multiplier;
+    private final BigDouble baseCost;
+    private final float costGrowthRate;
 
-    private long durationMs;
-    private final boolean permanentDuration;
+    private final float yieldMultiplier;
 
     private final boolean affectsClick;
     private final boolean affectsAllGenerators;
     private final Set<Integer> affectedGeneratorIds;
 
-    public Effect(
+    public Upgrade(
             int id,
             int iconResId,
             int nameResId,
             int descResId,
-            double multiplier,
-            long durationMs,
-            boolean permanentDuration,
+            BigDouble baseCost,
+            float costGrowthRate,
+            float yieldMultiplier,
             boolean affectsClick,
             boolean affectsAllGenerators,
             Set<Integer> affectedGeneratorIds
-    ){
+    ) {
         this.id = id;
         this.iconResId = iconResId;
         this.nameResId = nameResId;
         this.descResId = descResId;
-        this.multiplier = multiplier;
-        this.durationMs = durationMs;
-        this.permanentDuration = permanentDuration;
+        this.baseCost = baseCost;
+        this.costGrowthRate = costGrowthRate;
+        this.yieldMultiplier = yieldMultiplier;
         this.affectsClick = affectsClick;
         this.affectsAllGenerators = affectsAllGenerators;
         this.affectedGeneratorIds = affectedGeneratorIds;
@@ -58,20 +60,16 @@ public class Effect {
         return descResId;
     }
 
-    public double getMultiplier() {
-        return multiplier;
+    public BigDouble getBaseCost() {
+        return baseCost;
     }
 
-    public long getDurationMs() {
-        return durationMs;
+    public float getCostGrowthRate() {
+        return costGrowthRate;
     }
 
-    public void setDurationMs(long durationMs) {
-        this.durationMs = durationMs;
-    }
-
-    public boolean isPermanentDuration() {
-        return permanentDuration;
+    public float getYieldMultiplier() {
+        return yieldMultiplier;
     }
 
     public boolean isAffectsClick() {
