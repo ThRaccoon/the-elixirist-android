@@ -27,15 +27,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".activities.QuestsActivity"
-            android:exported="false" />
-
-        <activity
             android:name=".activities.StatsActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".activities.TrophiesActivity"
             android:exported="false" />
     </application>
 </manifest>

@@ -24,9 +24,7 @@ public class MainActivity extends AppCompatActivity {
     PixelPerfectImageButton ppibPotionSprite;
     ImageButton ibMain;
     ImageButton ibMarket;
-    ImageButton ibQuests;
     ImageButton ibStats;
-    ImageButton ibTrophies;
 
     // Game Vars
     BigDouble totalPotions = new BigDouble(0, 0);
@@ -50,18 +48,14 @@ public class MainActivity extends AppCompatActivity {
         ppibPotionSprite = findViewById(R.id.main_ppib_potion_sprite);
         ibMain = findViewById(R.id.main_ib_main);
         ibMarket = findViewById(R.id.main_ib_market);
-        ibQuests = findViewById(R.id.main_ib_quests);
         ibStats = findViewById(R.id.main_ib_stats);
-        ibTrophies = findViewById(R.id.main_ib_trophies);
 
         updateUI();
 
         ppibPotionSprite.setOnClickListener(v -> onBrew());
         ibMain.setOnClickListener(v -> onMainClicked());
         ibMarket.setOnClickListener(v -> onMarketClicked());
-        ibQuests.setOnClickListener(v -> onQuestsClicked());
         ibStats.setOnClickListener(v -> onStatsClicked());
-        ibTrophies.setOnClickListener(v -> onTrophiesClicked());
     }
 
     private void onBrew() {
@@ -96,26 +90,8 @@ public class MainActivity extends AppCompatActivity {
         ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
     }
 
-    private void onQuestsClicked() {
-        Intent intent = new Intent(MainActivity.this, QuestsActivity.class);
-        startActivity(intent);
-
-        overridePendingTransition(0, 0);
-
-        ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
-    }
-
     private void onStatsClicked() {
         Intent intent = new Intent(MainActivity.this, StatsActivity.class);
-        startActivity(intent);
-
-        overridePendingTransition(0, 0);
-
-        ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
-    }
-
-    private void onTrophiesClicked() {
-        Intent intent = new Intent(MainActivity.this, TrophiesActivity.class);
         startActivity(intent);
 
         overridePendingTransition(0, 0);

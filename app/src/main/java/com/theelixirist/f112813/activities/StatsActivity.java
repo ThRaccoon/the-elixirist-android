@@ -17,9 +17,7 @@ public class StatsActivity extends AppCompatActivity {
     // Views
     ImageButton ibPotion;
     ImageButton ibMarket;
-    ImageButton ibQuests;
     ImageButton ibStats;
-    ImageButton ibTrophies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,15 +33,11 @@ public class StatsActivity extends AppCompatActivity {
 
         ibPotion = findViewById(R.id.stats_ib_main);
         ibMarket = findViewById(R.id.stats_ib_market);
-        ibQuests = findViewById(R.id.stats_ib_quests);
         ibStats = findViewById(R.id.stats_ib_stats);
-        ibTrophies = findViewById(R.id.stats_ib_trophies);
 
         ibPotion.setOnClickListener(v -> onMainClicked());
         ibMarket.setOnClickListener(v -> onMarketClicked());
-        ibQuests.setOnClickListener(v -> onQuestsClicked());
         ibStats.setOnClickListener(v -> onStatsClicked());
-        ibTrophies.setOnClickListener(v -> onTrophiesClicked());
     }
 
     private void onMainClicked() {
@@ -64,25 +58,7 @@ public class StatsActivity extends AppCompatActivity {
         ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
     }
 
-    private void onQuestsClicked() {
-        Intent intent = new Intent(StatsActivity.this, QuestsActivity.class);
-        startActivity(intent);
-
-        overridePendingTransition(0, 0);
-
-        ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
-    }
-
     private void onStatsClicked() {
-        ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
-    }
-
-    private void onTrophiesClicked() {
-        Intent intent = new Intent(StatsActivity.this, TrophiesActivity.class);
-        startActivity(intent);
-
-        overridePendingTransition(0, 0);
-
         ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
     }
 }

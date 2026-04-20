@@ -10,12 +10,6 @@
     // Market
     <string name="market_title">Market</string>
 
-    // Quests
-    <string name="quests_title">Quests</string>
-
     // Stats
     <string name="stats_title">Stats</string>
-
-    // Trophies
-    <string name="trophies_title">Trophies</string>
 </resources>
