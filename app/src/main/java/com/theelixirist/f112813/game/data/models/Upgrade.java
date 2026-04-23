@@ -1,15 +1,20 @@
-package com.theelixirist.f112813.game.models;
+package com.theelixirist.f112813.game.data.models;
 
+import com.theelixirist.f112813.game.core.Requirement;
+import com.theelixirist.f112813.game.math.BigDouble;
+
+import java.util.List;
 import java.util.Set;
 
-public class Buff {
+public class Upgrade {
     private final int id;
 
     private final int iconResId;
     private final int nameResId;
     private final int descResId;
 
-    private float durationSec;
+    private final BigDouble baseCost;
+    private final float costGrowthRate;
 
     private final float yieldMultiplier;
 
@@ -17,26 +22,32 @@ public class Buff {
     private final boolean affectsAllGenerators;
     private final Set<Integer> affectedGeneratorIds;
 
-    public Buff(
+    private final List<Requirement> requirements;
+
+    public Upgrade(
             int id,
             int iconResId,
             int nameResId,
             int descResId,
-            float durationSec,
+            BigDouble baseCost,
+            float costGrowthRate,
             float yieldMultiplier,
             boolean affectsClick,
             boolean affectsAllGenerators,
-            Set<Integer> affectedGeneratorIds
+            Set<Integer> affectedGeneratorIds,
+            List<Requirement> requirements
     ) {
         this.id = id;
         this.iconResId = iconResId;
         this.nameResId = nameResId;
         this.descResId = descResId;
-        this.durationSec = durationSec;
+        this.baseCost = baseCost;
+        this.costGrowthRate = costGrowthRate;
         this.yieldMultiplier = yieldMultiplier;
         this.affectsClick = affectsClick;
         this.affectsAllGenerators = affectsAllGenerators;
         this.affectedGeneratorIds = affectedGeneratorIds;
+        this.requirements = requirements;
     }
 
     public int getId() {
@@ -55,12 +66,12 @@ public class Buff {
         return descResId;
     }
 
-    public float getDurationSec() {
-        return durationSec;
+    public BigDouble getBaseCost() {
+        return baseCost;
     }
 
-    public void setDurationSec(float durationSec) {
-        this.durationSec = durationSec;
+    public float getCostGrowthRate() {
+        return costGrowthRate;
     }
 
     public float getYieldMultiplier() {
@@ -77,5 +88,9 @@ public class Buff {
 
     public Set<Integer> getAffectedGeneratorIds() {
         return affectedGeneratorIds;
+    }
+
+    public List<Requirement> getRequirements() {
+        return requirements;
     }
 }

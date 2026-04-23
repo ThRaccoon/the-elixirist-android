@@ -33,7 +33,7 @@ public class MarketActivity extends AppCompatActivity {
 
         ibPotion = findViewById(R.id.market_ib_main);
         ibMarket = findViewById(R.id.market_ib_market);
-        ibStats = findViewById(R.id.market_ib_stats);
+        ibStats = findViewById(R.id.market_ib_chronicle);
 
         ibPotion.setOnClickListener(v -> onMainClicked());
         ibMarket.setOnClickListener(v -> onMarketClicked());
@@ -54,7 +54,7 @@ public class MarketActivity extends AppCompatActivity {
     }
 
     private void onStatsClicked() {
-        Intent intent = new Intent(MarketActivity.this, StatsActivity.class);
+        Intent intent = new Intent(MarketActivity.this, ChronicleActivity.class);
         startActivity(intent);
 
         overridePendingTransition(0, 0);

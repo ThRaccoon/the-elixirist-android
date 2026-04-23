@@ -13,17 +13,17 @@ import androidx.core.view.WindowInsetsControllerCompat;
 import com.theelixirist.f112813.ElixiristApp;
 import com.theelixirist.f112813.R;
 
-public class StatsActivity extends AppCompatActivity {
+public class ChronicleActivity extends AppCompatActivity {
     // Views
     ImageButton ibPotion;
     ImageButton ibMarket;
-    ImageButton ibStats;
+    ImageButton ibChronicle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_stats);
+        setContentView(R.layout.activity_chronicle);
 
         WindowInsetsControllerCompat windowInsetsController =
                 WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
@@ -31,17 +31,17 @@ public class StatsActivity extends AppCompatActivity {
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
         windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
 
-        ibPotion = findViewById(R.id.stats_ib_main);
-        ibMarket = findViewById(R.id.stats_ib_market);
-        ibStats = findViewById(R.id.stats_ib_stats);
+        ibPotion = findViewById(R.id.chronicle_ib_main);
+        ibMarket = findViewById(R.id.chronicle_ib_market);
+        ibChronicle = findViewById(R.id.chronicle_ib_chronicle);
 
         ibPotion.setOnClickListener(v -> onMainClicked());
         ibMarket.setOnClickListener(v -> onMarketClicked());
-        ibStats.setOnClickListener(v -> onStatsClicked());
+        ibChronicle.setOnClickListener(v -> onChronicleClicked());
     }
 
     private void onMainClicked() {
-        Intent intent = new Intent(StatsActivity.this, MainActivity.class);
+        Intent intent = new Intent(ChronicleActivity.this, MainActivity.class);
         startActivity(intent);
 
         overridePendingTransition(0, 0);
@@ -50,7 +50,7 @@ public class StatsActivity extends AppCompatActivity {
     }
 
     private void onMarketClicked() {
-        Intent intent = new Intent(StatsActivity.this, MarketActivity.class);
+        Intent intent = new Intent(ChronicleActivity.this, MarketActivity.class);
         startActivity(intent);
 
         overridePendingTransition(0, 0);
@@ -58,7 +58,7 @@ public class StatsActivity extends AppCompatActivity {
         ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
     }
 
-    private void onStatsClicked() {
+    private void onChronicleClicked() {
         ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
     }
 }

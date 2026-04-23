@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_stats"
+    android:background="@drawable/bg_chronicle"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:background="#59000000"
+        android:background="#4D000000"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="8dp">
@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:letterSpacing="0.1"
-            android:text="@string/stats_title"
+            android:text="@string/chronicle_title"
             android:textColor="#FFFFFF"
             android:textSize="34sp" />
     </LinearLayout>
@@ -30,12 +30,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#5A000000"
+        android:background="#9A000000"
         android:orientation="horizontal"
         android:padding="8dp">
 
         <ImageButton
-            android:id="@+id/stats_ib_main"
+            android:id="@+id/chronicle_ib_main"
             android:layout_width="@dimen/btn_icon_width"
             android:layout_height="@dimen/btn_icon_height"
             android:layout_weight="1"
@@ -52,7 +52,7 @@
             android:backgroundTint="#00FFFFFF" />
 
         <ImageButton
-            android:id="@+id/stats_ib_market"
+            android:id="@+id/chronicle_ib_market"
             android:layout_width="@dimen/btn_icon_width"
             android:layout_height="@dimen/btn_icon_height"
             android:layout_weight="1"
@@ -76,13 +76,13 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:id="@+id/stats_ib_stats"
+                android:id="@+id/chronicle_ib_chronicle"
                 android:layout_width="@dimen/btn_icon_selected_width"
                 android:layout_height="@dimen/btn_icon_selected_height"
                 android:background="#00FFFFFF"
                 android:contentDescription="@string/cont_desc_none"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/btn_stats" />
+                app:srcCompat="@drawable/btn_chronicle" />
 
             <View
                 android:layout_width="4dp"

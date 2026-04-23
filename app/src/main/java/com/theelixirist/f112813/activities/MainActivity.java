@@ -19,15 +19,15 @@ import com.theelixirist.f112813.views.PixelPerfectImageButton;
 
 public class MainActivity extends AppCompatActivity {
     // Views
-    TextView tvPotionCount;
-    TextView tvPotionsPerSecond;
-    PixelPerfectImageButton ppibPotionSprite;
+    TextView tvElixirsCount;
+    TextView tvElixirsPerSecond;
+    PixelPerfectImageButton ppibElixirSprite;
     ImageButton ibMain;
     ImageButton ibMarket;
-    ImageButton ibStats;
+    ImageButton ibChronicle;
 
     // Game Vars
-    BigDouble totalPotions = new BigDouble(0, 0);
+    BigDouble totalElixirs = new BigDouble(0, 0);
     BigDouble potionsPerClick = new BigDouble(1, 0);
     BigDouble potionsPerSecond = new BigDouble(0, 0);
 
@@ -43,19 +43,19 @@ public class MainActivity extends AppCompatActivity {
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
         windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
 
-        tvPotionCount = findViewById(R.id.main_tv_potion_count);
-        tvPotionsPerSecond = findViewById(R.id.main_tv_potions_per_second);
-        ppibPotionSprite = findViewById(R.id.main_ppib_potion_sprite);
+        tvElixirsCount = findViewById(R.id.main_tv_potion_count);
+        tvElixirsPerSecond = findViewById(R.id.main_tv_potions_per_second);
+        ppibElixirSprite = findViewById(R.id.main_ppib_potion_sprite);
         ibMain = findViewById(R.id.main_ib_main);
         ibMarket = findViewById(R.id.main_ib_market);
-        ibStats = findViewById(R.id.main_ib_stats);
+        ibChronicle = findViewById(R.id.main_ib_chronicle);
 
         updateUI();
 
-        ppibPotionSprite.setOnClickListener(v -> onBrew());
+        ppibElixirSprite.setOnClickListener(v -> onBrew());
         ibMain.setOnClickListener(v -> onMainClicked());
         ibMarket.setOnClickListener(v -> onMarketClicked());
-        ibStats.setOnClickListener(v -> onStatsClicked());
+        ibChronicle.setOnClickListener(v -> onStatsClicked());
     }
 
     private void onBrew() {
@@ -63,14 +63,14 @@ public class MainActivity extends AppCompatActivity {
 
         ElixiristApp.get(this).getAudioManager().play("brew", 1);
 
-        ppibPotionSprite.animate().cancel();
-        ppibPotionSprite.setScaleX(1.0f);
-        ppibPotionSprite.setScaleY(1.0f);
-        ppibPotionSprite.animate()
+        ppibElixirSprite.animate().cancel();
+        ppibElixirSprite.setScaleX(1.0f);
+        ppibElixirSprite.setScaleY(1.0f);
+        ppibElixirSprite.animate()
                 .scaleX(0.90f)
                 .scaleY(0.90f)
                 .setDuration(25)
-                .withEndAction(() -> ppibPotionSprite.animate()
+                .withEndAction(() -> ppibElixirSprite.animate()
                         .scaleX(1.0f)
                         .scaleY(1.0f)
                         .setDuration(50)
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onStatsClicked() {
-        Intent intent = new Intent(MainActivity.this, StatsActivity.class);
+        Intent intent = new Intent(MainActivity.this, ChronicleActivity.class);
         startActivity(intent);
 
         overridePendingTransition(0, 0);
@@ -100,15 +100,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void incrementPotions(BigDouble amount) {
-        totalPotions.add(amount);
+        totalElixirs.add(amount);
         updateUI();
     }
 
     private void updateUI() {
-        String formattedTotalPotions = BigDoubleFormatter.format(totalPotions);
+        String formattedTotalPotions = BigDoubleFormatter.format(totalElixirs);
         String formattedPotionsPerSecond = BigDoubleFormatter.format(potionsPerSecond);
 
-        tvPotionCount.setText(getString(R.string.potion_count_label, formattedTotalPotions));
-        tvPotionsPerSecond.setText(getString(R.string.potions_per_second_label, formattedPotionsPerSecond));
+        tvElixirsCount.setText(getString(R.string.elixirs_count_label, formattedTotalPotions));
+        tvElixirsPerSecond.setText(getString(R.string.elixirs_per_second_label, formattedPotionsPerSecond));
     }
 }

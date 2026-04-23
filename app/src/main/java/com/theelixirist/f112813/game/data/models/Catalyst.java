@@ -1,4 +1,4 @@
-package com.theelixirist.f112813.game.models;
+package com.theelixirist.f112813.game.data.models;
 
 import java.util.Set;
 

@@ -1,6 +1,9 @@
-package com.theelixirist.f112813.game.models;
+package com.theelixirist.f112813.game.data.models;
 
+import com.theelixirist.f112813.game.core.Requirement;
 import com.theelixirist.f112813.game.math.BigDouble;
+
+import java.util.List;
 
 public class Generator {
     private final int id;
@@ -14,6 +17,10 @@ public class Generator {
 
     private final BigDouble baseYieldPerSecond;
 
+    private final List<Requirement> requirements;
+
+    private int ownedCount;
+
     public Generator(
             int id,
             int iconResId,
@@ -21,7 +28,9 @@ public class Generator {
             int descResId,
             BigDouble baseCost,
             float costGrowthRate,
-            BigDouble baseYieldPerSecond
+            BigDouble baseYieldPerSecond,
+            List<Requirement> requirements,
+            int ownedCount
     ) {
         this.id = id;
         this.iconResId = iconResId;
@@ -30,6 +39,8 @@ public class Generator {
         this.baseCost = baseCost;
         this.costGrowthRate = costGrowthRate;
         this.baseYieldPerSecond = baseYieldPerSecond;
+        this.requirements = requirements;
+        this.ownedCount = ownedCount;
     }
 
     public int getId() {
@@ -58,5 +69,17 @@ public class Generator {
 
     public BigDouble getBaseYieldPerSecond() {
         return baseYieldPerSecond;
+    }
+
+    public List<Requirement> getRequirements() {
+        return requirements;
+    }
+
+    public int getOwnedCount() {
+        return ownedCount;
+    }
+
+    public void setOwnedCount(int ownedCount) {
+        this.ownedCount = ownedCount;
     }
 }

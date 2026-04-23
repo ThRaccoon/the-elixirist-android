@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:background="#59000000"
+        android:background="#4D000000"
         android:gravity="center"
         android:orientation="vertical"
         android:paddingLeft="8dp"
@@ -47,14 +47,14 @@
         android:background="#00FFFFFF"
         android:contentDescription="@string/cont_desc_none"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/spr_potion" />
+        app:srcCompat="@drawable/spr_elixir" />
 
     <LinearLayout
         android:id="@+id/container_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#5A000000"
+        android:background="#9A000000"
         android:orientation="horizontal"
         android:padding="8dp">
 
@@ -106,14 +106,14 @@
             android:backgroundTint="#00FFFFFF" />
 
         <ImageButton
-            android:id="@+id/main_ib_stats"
+            android:id="@+id/main_ib_chronicle"
             android:layout_width="@dimen/btn_icon_width"
             android:layout_height="@dimen/btn_icon_height"
             android:layout_weight="1"
             android:background="#00FFFFFF"
             android:contentDescription="@string/cont_desc_none"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/btn_stats" />
+            app:srcCompat="@drawable/btn_chronicle" />
 
     </LinearLayout>
 </RelativeLayout>
