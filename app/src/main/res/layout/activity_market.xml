@@ -95,6 +95,5 @@
             android:contentDescription="@string/cont_desc_none"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/btn_chronicle" />
-
     </LinearLayout>
 </RelativeLayout>

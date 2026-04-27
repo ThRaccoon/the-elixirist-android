@@ -12,7 +12,7 @@ import java.util.List;
 @Dao
 public interface GeneratorDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void create(GeneratorEntity generatorEntity);
+    void create(GeneratorEntity entity);
 
     @Query("SELECT * FROM owned_generators WHERE id = :id")
     GeneratorEntity readById(int id);
@@ -20,9 +20,6 @@ public interface GeneratorDao {
     @Query("SELECT * FROM owned_generators")
     List<GeneratorEntity> readAll();
 
-    @Query("UPDATE owned_generators SET count = :newCount WHERE id = :id")
+    @Query("UPDATE owned_generators SET ownedCount = :newCount WHERE id = :id")
     void updateCountById(int id, int newCount);
-
-    @Query("DELETE FROM owned_generators WHERE id = :id")
-    void deleteById(int id);
 }

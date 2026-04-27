@@ -1,0 +1,186 @@
+[
+  {
+    "id": 1,
+    "icon": "gen_briar_sprig",
+    "name": "Briar Sprig",
+    "desc": "Barely tries. Somehow still works.",
+    "baseCost": 1.2e1,
+    "costGrowthRate": 1.12,
+    "baseYieldPerSecond": 2e-1,
+    "requirements": [
+      {
+        "gate": "VISIBILITY",
+        "type": "TOTAL_ELIXIRS_PRODUCED",
+        "targetId": 0,
+        "threshold": 0
+      },
+      {
+        "gate": "PURCHASABILITY",
+        "type": "TOTAL_ELIXIRS_PRODUCED",
+        "targetId": 0,
+        "threshold": 0
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "icon": "gen_weeping_rose",
+    "name": "Weeping Rose",
+    "desc": "Cries crimson. You bottle the tears.",
+    "baseCost": 8e1,
+    "costGrowthRate": 1.12,
+    "baseYieldPerSecond": 1.2e0,
+    "requirements": [
+      {
+        "gate": "VISIBILITY",
+        "type": "TOTAL_ELIXIRS_PRODUCED",
+        "targetId": 0,
+        "threshold": 2e1
+      },
+      {
+        "gate": "PURCHASABILITY",
+        "type": "TOTAL_ELIXIRS_PRODUCED",
+        "targetId": 0,
+        "threshold": 4e1
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "icon": "gen_rootwarden",
+    "name": "Rootwarden",
+    "desc": "Grumpy, golden, and oddly productive.",
+    "baseCost": 9e2,
+    "costGrowthRate": 1.12,
+    "baseYieldPerSecond": 1e1,
+    "requirements": [
+      {
+        "gate": "VISIBILITY",
+        "type": "TOTAL_ELIXIRS_PRODUCED",
+        "targetId": 0,
+        "threshold": 2.25e2
+      },
+      {
+        "gate": "PURCHASABILITY",
+        "type": "TOTAL_ELIXIRS_PRODUCED",
+        "targetId": 0,
+        "threshold": 4.5e2
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "icon": "gen_pumpkin_lurker",
+    "name": "Pumpkin Lurker",
+    "desc": "Glows ominously. Smells like cinnamon.",
+    "baseCost": 1e4,
+    "costGrowthRate": 1.12,
+    "baseYieldPerSecond": 5.5e1,
+    "requirements": [
+      {
+        "gate": "VISIBILITY",
+        "type": "TOTAL_ELIXIRS_PRODUCED",
+        "targetId": 0,
+        "threshold": 2.5e3
+      },
+      {
+        "gate": "PURCHASABILITY",
+        "type": "TOTAL_ELIXIRS_PRODUCED",
+        "targetId": 0,
+        "threshold": 5e3
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "icon": "gen_gourd_hydra",
+    "name": "Gourd Hydra",
+    "desc": "One body. Six opinions on brewing.",
+    "baseCost": 1.1e5,
+    "costGrowthRate": 1.12,
+    "baseYieldPerSecond": 3e2,
+    "requirements": [
+      {
+        "gate": "VISIBILITY",
+        "type": "TOTAL_ELIXIRS_PRODUCED",
+        "targetId": 0,
+        "threshold": 2.75e4
+      },
+      {
+        "gate": "PURCHASABILITY",
+        "type": "TOTAL_ELIXIRS_PRODUCED",
+        "targetId": 0,
+        "threshold": 5.5e4
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "icon": "gen_rimecaller",
+    "name": "Rimecaller",
+    "desc": "Condenses frost into something drinkable.",
+    "baseCost": 1.2e6,
+    "costGrowthRate": 1.12,
+    "baseYieldPerSecond": 1.6e3,
+    "requirements": [
+      {
+        "gate": "VISIBILITY",
+        "type": "TOTAL_ELIXIRS_PRODUCED",
+        "targetId": 0,
+        "threshold": 3e5
+      },
+      {
+        "gate": "PURCHASABILITY",
+        "type": "TOTAL_ELIXIRS_PRODUCED",
+        "targetId": 0,
+        "threshold": 6e5
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "icon": "gen_gilded_gryphlet",
+    "name": "Gilded Gryphlet",
+    "desc": "Half eagle, half chicken, all alchemist.",
+    "baseCost": 1.6e7,
+    "costGrowthRate": 1.12,
+    "baseYieldPerSecond": 9e3,
+    "requirements": [
+      {
+        "gate": "VISIBILITY",
+        "type": "TOTAL_ELIXIRS_PRODUCED",
+        "targetId": 0,
+        "threshold": 4e6
+      },
+      {
+        "gate": "PURCHASABILITY",
+        "type": "TOTAL_ELIXIRS_PRODUCED",
+        "targetId": 0,
+        "threshold": 8e6
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "icon": "gen_the_grandbrewer",
+    "name": "The Grandbrewer",
+    "desc": "Forgot more recipes than you'll ever learn.",
+    "baseCost": 2.6e8,
+    "costGrowthRate": 1.12,
+    "baseYieldPerSecond": 5e4,
+    "requirements": [
+      {
+        "gate": "VISIBILITY",
+        "type": "TOTAL_ELIXIRS_PRODUCED",
+        "targetId": 0,
+        "threshold": 6.5e7
+      },
+      {
+        "gate": "PURCHASABILITY",
+        "type": "TOTAL_ELIXIRS_PRODUCED",
+        "targetId": 0,
+        "threshold": 1.3e8
+      }
+    ]
+  }
+]

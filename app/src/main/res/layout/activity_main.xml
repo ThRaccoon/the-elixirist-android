@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/container_top"
+        android:id="@+id/main_container_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -21,7 +21,7 @@
         android:paddingBottom="32dp">
 
         <TextView
-            android:id="@+id/main_tv_potion_count"
+            android:id="@+id/main_tv_elixirs_count"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -29,7 +29,7 @@
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/main_tv_potions_per_second"
+            android:id="@+id/main_tv_elixirs_per_second"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -37,12 +37,12 @@
             android:textSize="16sp" />
     </LinearLayout>
 
-    <com.theelixirist.f112813.views.PixelPerfectImageButton
-        android:id="@+id/main_ppib_potion_sprite"
+    <com.theelixirist.f112813.ui.views.PixelPerfectImageButton
+        android:id="@+id/main_ppib_elixir_sprite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/container_bottom"
-        android:layout_below="@id/container_top"
+        android:layout_above="@id/main_container_bottom"
+        android:layout_below="@id/main_container_top"
         android:layout_centerInParent="true"
         android:background="#00FFFFFF"
         android:contentDescription="@string/cont_desc_none"
@@ -50,7 +50,7 @@
         app:srcCompat="@drawable/spr_elixir" />
 
     <LinearLayout
-        android:id="@+id/container_bottom"
+        android:id="@+id/main_container_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -114,6 +114,5 @@
             android:contentDescription="@string/cont_desc_none"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/btn_chronicle" />
-
     </LinearLayout>
 </RelativeLayout>

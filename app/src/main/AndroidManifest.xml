@@ -14,7 +14,7 @@
         android:theme="@style/Theme.TheElixirist">
 
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".ui.activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,11 +23,11 @@
         </activity>
 
         <activity
-            android:name=".activities.MarketActivity"
+            android:name=".ui.activities.MarketActivity"
             android:exported="false" />
 
         <activity
-            android:name=".activities.ChronicleActivity"
+            android:name=".ui.activities.ChronicleActivity"
             android:exported="false" />
     </application>
 </manifest>
