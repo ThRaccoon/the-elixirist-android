@@ -1,6 +1,7 @@
 package com.theelixirist.f112813.game.definitions;
 
-import com.theelixirist.f112813.game.models.Requirement;
+import com.theelixirist.f112813.game.math.BigDouble;
+import com.theelixirist.f112813.game.runtime.Requirement;
 
 import java.util.List;
 import java.util.Set;
@@ -8,14 +9,13 @@ import java.util.Set;
 public class UpgradeDefinition {
     public int id;
 
-    public String icon;
-    public String name;
-    public String desc;
+    public int iconResId;
+    public int nameResId;
+    public int descResId;
 
-    public double baseCost;
-    public float costGrowthRate;
+    public BigDouble cost;
 
-    public float yieldMultiplier;
+    public double yieldMultiplier;
 
     public boolean affectsClick;
     public boolean affectsAllGenerators;

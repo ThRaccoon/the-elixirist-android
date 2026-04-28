@@ -15,7 +15,7 @@ import com.theelixirist.f112813.R;
 
 public class ChronicleActivity extends AppCompatActivity {
     // Views
-    ImageButton ibPotion;
+    ImageButton ibMain;
     ImageButton ibMarket;
     ImageButton ibChronicle;
 
@@ -31,11 +31,11 @@ public class ChronicleActivity extends AppCompatActivity {
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
         windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
 
-        ibPotion = findViewById(R.id.chronicle_ib_main);
+        ibMain = findViewById(R.id.chronicle_ib_main);
         ibMarket = findViewById(R.id.chronicle_ib_market);
         ibChronicle = findViewById(R.id.chronicle_ib_chronicle);
 
-        ibPotion.setOnClickListener(v -> onMainClicked());
+        ibMain.setOnClickListener(v -> onMainClicked());
         ibMarket.setOnClickListener(v -> onMarketClicked());
         ibChronicle.setOnClickListener(v -> onChronicleClicked());
     }

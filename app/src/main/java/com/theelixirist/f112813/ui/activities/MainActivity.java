@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
     // Game Vars
     BigDouble totalElixirs = new BigDouble(0, 0);
-    BigDouble potionsPerClick = new BigDouble(1, 0);
-    BigDouble potionsPerSecond = new BigDouble(0, 0);
+    BigDouble elixirsPerClick = new BigDouble(1, 0);
+    BigDouble elixirsPerSecond = new BigDouble(0, 0);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +55,11 @@ public class MainActivity extends AppCompatActivity {
         ppibElixirSprite.setOnClickListener(v -> onBrew());
         ibMain.setOnClickListener(v -> onMainClicked());
         ibMarket.setOnClickListener(v -> onMarketClicked());
-        ibChronicle.setOnClickListener(v -> onStatsClicked());
+        ibChronicle.setOnClickListener(v -> onChronicleClicked());
     }
 
     private void onBrew() {
-        incrementPotions(potionsPerClick);
+        incrementElixirs(elixirsPerClick);
 
         ElixiristApp.get(this).getAudioManager().play("brew", 1);
 
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
     }
 
-    private void onStatsClicked() {
+    private void onChronicleClicked() {
         Intent intent = new Intent(MainActivity.this, ChronicleActivity.class);
         startActivity(intent);
 
@@ -99,14 +99,14 @@ public class MainActivity extends AppCompatActivity {
         ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
     }
 
-    private void incrementPotions(BigDouble amount) {
+    private void incrementElixirs(BigDouble amount) {
         totalElixirs.add(amount);
         updateUI();
     }
 
     private void updateUI() {
         String formattedTotalPotions = BigDoubleFormatter.format(totalElixirs);
-        String formattedPotionsPerSecond = BigDoubleFormatter.format(potionsPerSecond);
+        String formattedPotionsPerSecond = BigDoubleFormatter.format(elixirsPerSecond);
 
         tvElixirsCount.setText(getString(R.string.elixirs_count_label, formattedTotalPotions));
         tvElixirsPerSecond.setText(getString(R.string.elixirs_per_second_label, formattedPotionsPerSecond));

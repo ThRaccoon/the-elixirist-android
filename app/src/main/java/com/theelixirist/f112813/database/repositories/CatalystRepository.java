@@ -1,7 +1,7 @@
 package com.theelixirist.f112813.database.repositories;
 
 import com.theelixirist.f112813.database.daos.CatalystDao;
-import com.theelixirist.f112813.game.models.Catalyst;
+import com.theelixirist.f112813.game.runtime.Catalyst;
 
 import java.util.List;
 

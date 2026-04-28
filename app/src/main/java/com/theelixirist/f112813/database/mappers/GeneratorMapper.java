@@ -17,6 +17,4 @@ public class GeneratorMapper {
         dto.ownedCount = entity.ownedCount;
         return dto;
     }
-
-    public static List<Gene>
 }

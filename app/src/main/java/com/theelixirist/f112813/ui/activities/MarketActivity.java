@@ -15,9 +15,9 @@ import com.theelixirist.f112813.R;
 
 public class MarketActivity extends AppCompatActivity {
     // Views
-    ImageButton ibPotion;
+    ImageButton ibMain;
     ImageButton ibMarket;
-    ImageButton ibStats;
+    ImageButton ibChronicle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +31,13 @@ public class MarketActivity extends AppCompatActivity {
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
         windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
 
-        ibPotion = findViewById(R.id.market_ib_main);
+        ibMain = findViewById(R.id.market_ib_main);
         ibMarket = findViewById(R.id.market_ib_market);
-        ibStats = findViewById(R.id.market_ib_chronicle);
+        ibChronicle = findViewById(R.id.market_ib_chronicle);
 
-        ibPotion.setOnClickListener(v -> onMainClicked());
+        ibMain.setOnClickListener(v -> onMainClicked());
         ibMarket.setOnClickListener(v -> onMarketClicked());
-        ibStats.setOnClickListener(v -> onStatsClicked());
+        ibChronicle.setOnClickListener(v -> onChronicleClicked());
     }
 
     private void onMainClicked() {
@@ -53,7 +53,7 @@ public class MarketActivity extends AppCompatActivity {
         ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
     }
 
-    private void onStatsClicked() {
+    private void onChronicleClicked() {
         Intent intent = new Intent(MarketActivity.this, ChronicleActivity.class);
         startActivity(intent);
 

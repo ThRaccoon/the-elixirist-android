@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "icon": "upg_briar_sprig_1",
+    "name": "Briar Sprig Upgrade I",
+    "desc": "Briar Sprigs produce twice as much.",
+    "baseCost": 1.2e1,
+    "costGrowthRate": 1.12,
+    "yieldMultiplier": 2,
+    "requirements": [
+      {
+        "gate": "VISIBILITY",
+        "type": "TOTAL_ELIXIRS_PRODUCED",
+        "targetId": 0,
+        "threshold": 0
+      },
+      {
+        "gate": "PURCHASABILITY",
+        "type": "TOTAL_ELIXIRS_PRODUCED",
+        "targetId": 0,
+        "threshold": 0
+      }
+    ]
+  }
+]
