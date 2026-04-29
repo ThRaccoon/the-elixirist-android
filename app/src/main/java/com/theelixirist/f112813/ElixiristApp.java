@@ -6,17 +6,19 @@ import android.content.Context;
 import androidx.room.Room;
 
 import com.theelixirist.f112813.database.AppDatabase;
-import com.theelixirist.f112813.game.registries.DefinitionRegistry;
+import com.theelixirist.f112813.database.repositories.BuffRepository;
+import com.theelixirist.f112813.database.repositories.CatalystRepository;
+import com.theelixirist.f112813.database.repositories.GeneratorRepository;
+import com.theelixirist.f112813.database.repositories.UpgradeRepository;
+import com.theelixirist.f112813.game.GameState;
+import com.theelixirist.f112813.game.definitions.DefinitionRegistry;
 import com.theelixirist.f112813.game.managers.AudioManager;
 
 public class ElixiristApp extends Application {
     private AppDatabase database;
-
-    // Managers
-    private AudioManager audioManager;
-
-    // Registries
     private DefinitionRegistry definitionRegistry;
+    private GameState gameState;
+    private AudioManager audioManager;
 
     @Override
     public void onCreate() {
@@ -26,11 +28,17 @@ public class ElixiristApp extends Application {
                 .allowMainThreadQueries()
                 .build();
 
-        // Managers
-        audioManager = new AudioManager(this);
-
-        // Registries
         definitionRegistry = new DefinitionRegistry(this);
+
+        gameState = new GameState(
+                new GeneratorRepository(database.generatorDao()),
+                new UpgradeRepository(database.upgradeDao()),
+                new CatalystRepository(database.catalystDao()),
+                new BuffRepository(database.buffDao())
+        );
+        gameState.loadFromDatabase();
+
+        audioManager = new AudioManager(this);
     }
 
     public static ElixiristApp get(Context context) {
@@ -41,13 +49,15 @@ public class ElixiristApp extends Application {
         return database;
     }
 
-    // Managers
-    public AudioManager getAudioManager() {
-        return audioManager;
-    }
-
-    // Registries
     public DefinitionRegistry getDefinitionRegistry() {
         return definitionRegistry;
+    }
+
+    public GameState getGameState() {
+        return gameState;
+    }
+
+    public AudioManager getAudioManager() {
+        return audioManager;
     }
 }

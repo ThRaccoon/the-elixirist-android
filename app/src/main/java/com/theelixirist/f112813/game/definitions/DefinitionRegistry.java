@@ -1,11 +1,7 @@
-package com.theelixirist.f112813.game.registries;
+package com.theelixirist.f112813.game.definitions;
 
 import android.content.Context;
 
-import com.theelixirist.f112813.game.definitions.BuffDefinition;
-import com.theelixirist.f112813.game.definitions.CatalystDefinition;
-import com.theelixirist.f112813.game.definitions.GeneratorDefinition;
-import com.theelixirist.f112813.game.definitions.UpgradeDefinition;
 import com.theelixirist.f112813.game.definitions.parsers.BuffDefinitionParser;
 import com.theelixirist.f112813.game.definitions.parsers.CatalystDefinitionParser;
 import com.theelixirist.f112813.game.definitions.parsers.GeneratorDefinitionParser;

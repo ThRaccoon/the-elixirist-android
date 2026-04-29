@@ -2,6 +2,7 @@ package com.theelixirist.f112813.database.mappers;
 
 import com.theelixirist.f112813.database.dtos.CatalystDto;
 import com.theelixirist.f112813.database.entities.CatalystEntity;
+import com.theelixirist.f112813.game.runtime.Catalyst;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,5 +35,23 @@ public class CatalystMapper {
             dtos.add(toDto(entity));
         }
         return dtos;
+    }
+
+    public static CatalystDto fromRuntime(Catalyst catalyst) {
+        CatalystDto dto = new CatalystDto();
+        dto.id = catalyst.getId();
+        dto.despawnDurationMs = catalyst.getDespawnDurationMs();
+        dto.normalizedPosX = catalyst.getNormalizedPosX();
+        dto.normalizedPosY = catalyst.getNormalizedPosY();
+        return dto;
+    }
+
+    public static Catalyst toRuntime(CatalystDto dto) {
+        return new Catalyst(
+                dto.id,
+                dto.despawnDurationMs,
+                dto.normalizedPosX,
+                dto.normalizedPosY
+        );
     }
 }
