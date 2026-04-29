@@ -8,9 +8,9 @@ import java.util.List;
 public class GeneratorDefinition {
     public int id;
 
-    public int icon;
-    public int name;
-    public int desc;
+    public String icon;
+    public String name;
+    public String desc;
 
     public BigDouble baseCost;
     public double costGrowthRate;

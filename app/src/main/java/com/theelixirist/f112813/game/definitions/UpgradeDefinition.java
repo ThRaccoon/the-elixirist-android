@@ -9,9 +9,9 @@ import java.util.Set;
 public class UpgradeDefinition {
     public int id;
 
-    public int icon;
-    public int name;
-    public int desc;
+    public String icon;
+    public String name;
+    public String desc;
 
     public BigDouble cost;
 

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "icon": "catalyst_minor",
+    "name": "Minor Catalyst",
+    "desc": "Spawns a random minor buff.",
+    "rollWeight": 60,
+    "despawnDurationMs": 10000,
+    "buffPoolIds": [
+      10,
+      20
+    ]
+  },
+  {
+    "id": 2,
+    "icon": "catalyst_major",
+    "name": "Major Catalyst",
+    "desc": "Spawns a random major buff.",
+    "rollWeight": 30,
+    "despawnDurationMs": 10000,
+    "buffPoolIds": [
+      11,
+      21
+    ]
+  },
+  {
+    "id": 3,
+    "icon": "catalyst_mythic",
+    "name": "Mythic Catalyst",
+    "desc": "Spawns a random mythic buff. Extremely rare.",
+    "rollWeight": 10,
+    "despawnDurationMs": 10000,
+    "buffPoolIds": [
+      12,
+      22
+    ]
+  }
+]
