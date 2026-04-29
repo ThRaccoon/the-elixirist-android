@@ -8,9 +8,9 @@ import java.util.Set;
 public class BuffDefinition {
     public int id;
 
-    public int iconResId;
-    public int nameResId;
-    public int descResId;
+    public int icon;
+    public int name;
+    public int desc;
 
     public long durationMs;
 

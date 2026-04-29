@@ -8,31 +8,31 @@ public class Requirement {
         PURCHASABILITY
     }
 
-    public enum Criterion {
+    public enum Condition {
         // Elixir
         ELIXIR_TOTAL_PRODUCED,
 
         // Generator
-        GENERATOR_TOTAL_OWNED,
-        GENERATOR_TOTAL_OWNED_WITH_ID,
+        GENERATOR_COUNT_ALL,
+        GENERATOR_COUNT_BY_ID,
 
         // Upgrade
-        UPGRADE_TOTAL_OWNED,
-        UPGRADE_TOTAL_OWNED_WITH_ID,
+        UPGRADE_COUNT_ALL,
+        UPGRADE_COUNT_BY_ID,
 
         // Catalyst
         CATALYST_TOTAL_COLLECTED
     }
 
     private final Gate gate;
-    private final Criterion criterion;
-    private final int subjectId;
+    private final Condition condition;
+    private final int targetId;
     private final BigDouble threshold;
 
-    public Requirement(Gate gate, Criterion criterion, int subjectId, BigDouble threshold) {
+    public Requirement(Gate gate, Condition condition, int targetId, BigDouble threshold) {
         this.gate = gate;
-        this.criterion = criterion;
-        this.subjectId = subjectId;
+        this.condition = condition;
+        this.targetId = targetId;
         this.threshold = threshold;
     }
 
@@ -40,12 +40,12 @@ public class Requirement {
         return gate;
     }
 
-    public Criterion getCriterion() {
-        return criterion;
+    public Condition getCondition() {
+        return condition;
     }
 
-    public int getSubjectId() {
-        return subjectId;
+    public int getTargetId() {
+        return targetId;
     }
 
     public BigDouble getThreshold() {
@@ -53,25 +53,25 @@ public class Requirement {
     }
 
     public boolean isMet() {
-        switch (criterion) {
+        switch (condition) {
             // Elixir
             case ELIXIR_TOTAL_PRODUCED: {
                 return false; // To Do
             }
 
             // Generator
-            case GENERATOR_TOTAL_OWNED: {
+            case GENERATOR_COUNT_ALL: {
                 return false; // To Do
             }
-            case GENERATOR_TOTAL_OWNED_WITH_ID: {
+            case GENERATOR_COUNT_BY_ID: {
                 return false; // To Do
             }
 
             // Upgrade
-            case UPGRADE_TOTAL_OWNED: {
+            case UPGRADE_COUNT_ALL: {
                 return false; // To Do
             }
-            case UPGRADE_TOTAL_OWNED_WITH_ID: {
+            case UPGRADE_COUNT_BY_ID: {
                 return false; // To Do
             }
 
