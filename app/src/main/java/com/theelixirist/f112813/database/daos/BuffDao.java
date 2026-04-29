@@ -5,17 +5,17 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import com.theelixirist.f112813.database.entities.CatalystEntity;
+import com.theelixirist.f112813.database.entities.BuffEntity;
 
 import java.util.List;
 
-public interface CatalystDao {
+public interface BuffDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void create(CatalystEntity entity);
+    void create(BuffEntity entity);
 
-    @Query("SELECT * FROM active_catalysts")
-    List<CatalystEntity> readAll();
+    @Query("SELECT * FROM active_buffs")
+    List<BuffEntity> readAll();
 
     @Delete
-    void delete(CatalystEntity entity);
+    void delete(BuffEntity entity);
 }

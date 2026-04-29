@@ -1,7 +1,8 @@
 package com.theelixirist.f112813.database.repositories;
 
 import com.theelixirist.f112813.database.daos.CatalystDao;
-import com.theelixirist.f112813.game.runtime.Catalyst;
+import com.theelixirist.f112813.database.dtos.CatalystDto;
+import com.theelixirist.f112813.database.mappers.CatalystMapper;
 
 import java.util.List;
 
@@ -12,11 +13,11 @@ public class CatalystRepository {
         this.dao = dao;
     }
 
-    public void create(Catalyst catalyst) {
+    public void create(CatalystDto dto) {
         dao.create(CatalystMapper.toEntity(dto));
     }
 
-    public List<CatalystDto> getAll() {
+    public List<CatalystDto> readAll() {
         return CatalystMapper.toDtoList(dao.readAll());
     }
 

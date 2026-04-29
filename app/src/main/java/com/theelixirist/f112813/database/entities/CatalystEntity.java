@@ -3,7 +3,7 @@ package com.theelixirist.f112813.database.entities;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "spawned_catalysts")
+@Entity(tableName = "active_catalysts")
 public class CatalystEntity {
     @PrimaryKey
     public int id;

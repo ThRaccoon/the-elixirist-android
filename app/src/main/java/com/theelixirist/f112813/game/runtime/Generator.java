@@ -3,25 +3,25 @@ package com.theelixirist.f112813.game.runtime;
 public class Generator {
     private final int id;
 
-    private int ownedCount;
+    private int currentCount;
 
     public Generator(
             int id,
-            int ownedCount
+            int currentCount
     ) {
         this.id = id;
-        this.ownedCount = ownedCount;
+        this.currentCount = currentCount;
     }
 
     public int getId() {
         return id;
     }
 
-    public int getOwnedCount() {
-        return ownedCount;
+    public int getCurrentCount() {
+        return currentCount;
     }
 
-    public void setOwnedCount(int ownedCount) {
-        this.ownedCount = ownedCount;
+    public void setCurrentCount(int currentCount) {
+        this.currentCount = currentCount;
     }
 }

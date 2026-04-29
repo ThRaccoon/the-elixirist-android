@@ -12,6 +12,6 @@ public interface UpgradeDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void create(UpgradeEntity entity);
 
-    @Query("SELECT * FROM OWNED_UPGRADES")
+    @Query("SELECT * FROM active_upgrades")
     List<UpgradeEntity> readAll();
 }

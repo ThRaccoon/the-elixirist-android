@@ -1,6 +1,8 @@
 package com.theelixirist.f112813.database.repositories;
 
 import com.theelixirist.f112813.database.daos.UpgradeDao;
+import com.theelixirist.f112813.database.dtos.UpgradeDto;
+import com.theelixirist.f112813.database.mappers.UpgradeMapper;
 
 import java.util.List;
 
@@ -15,7 +17,7 @@ public class UpgradeRepository {
         dao.create(UpgradeMapper.toEntity(dto));
     }
 
-    public List<UpgradeDto> getAll() {
+    public List<UpgradeDto> readAll() {
         return UpgradeMapper.toDtoList(dao.readAll());
     }
 }

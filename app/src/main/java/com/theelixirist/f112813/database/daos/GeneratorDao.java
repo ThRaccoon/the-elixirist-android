@@ -14,12 +14,9 @@ public interface GeneratorDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void create(GeneratorEntity entity);
 
-    @Query("SELECT * FROM owned_generators WHERE id = :id")
-    GeneratorEntity readById(int id);
-
-    @Query("SELECT * FROM owned_generators")
+    @Query("SELECT * FROM active_generators")
     List<GeneratorEntity> readAll();
 
-    @Query("UPDATE owned_generators SET ownedCount = :newCount WHERE id = :id")
-    void updateCountById(int id, int newCount);
+    @Query("UPDATE active_generators SET currentCount = :currentCount WHERE id = :id")
+    void updateCurrentCountById(int id, int currentCount);
 }

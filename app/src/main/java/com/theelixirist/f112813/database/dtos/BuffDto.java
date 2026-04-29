@@ -1,7 +1,7 @@
 package com.theelixirist.f112813.database.dtos;
 
-public class GeneratorDto {
+public class BuffDto {
     public int id;
 
-    public int currentCount;
+    public long durationMs;
 }
