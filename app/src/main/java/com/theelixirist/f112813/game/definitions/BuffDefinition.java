@@ -12,6 +12,7 @@ public class BuffDefinition {
     public int name;
     public int desc;
 
+    public double rollWeight;
     public long durationMs;
 
     public double yieldMultiplier;

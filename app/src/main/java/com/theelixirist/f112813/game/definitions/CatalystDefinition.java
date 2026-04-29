@@ -9,6 +9,7 @@ public class CatalystDefinition {
     public int name;
     public int desc;
 
+    public double rollWeight;
     public long despawnDurationMs;
 
     public Set<Integer> buffPoolIds;
