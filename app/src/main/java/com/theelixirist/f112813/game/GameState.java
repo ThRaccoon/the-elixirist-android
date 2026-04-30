@@ -12,6 +12,7 @@ import com.theelixirist.f112813.database.repositories.BuffRepository;
 import com.theelixirist.f112813.database.repositories.CatalystRepository;
 import com.theelixirist.f112813.database.repositories.GeneratorRepository;
 import com.theelixirist.f112813.database.repositories.UpgradeRepository;
+import com.theelixirist.f112813.game.math.BigDouble;
 import com.theelixirist.f112813.game.runtime.Buff;
 import com.theelixirist.f112813.game.runtime.Catalyst;
 import com.theelixirist.f112813.game.runtime.Generator;
@@ -20,6 +21,8 @@ import com.theelixirist.f112813.game.runtime.Upgrade;
 import java.util.HashMap;
 
 public class GameState {
+    private BigDouble currentElixirs;
+
     private final GeneratorRepository generatorRepository;
     private final UpgradeRepository upgradeRepository;
     private final CatalystRepository catalystRepository;
@@ -40,6 +43,14 @@ public class GameState {
         this.upgradeRepository = upgradeRepository;
         this.catalystRepository = catalystRepository;
         this.buffRepository = buffRepository;
+    }
+
+    public BigDouble getCurrentElixirs() {
+        return currentElixirs;
+    }
+
+    public void setCurrentElixirs(BigDouble currentElixirs) {
+        this.currentElixirs = currentElixirs;
     }
 
     public HashMap<Integer, Generator> getGenerators() {

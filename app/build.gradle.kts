@@ -13,7 +13,7 @@ android {
     defaultConfig {
         applicationId = "com.theelixirist.f112813"
         minSdk = 29
-        targetSdk = 36
+        compileSdk = 36
         versionCode = 1
         versionName = "1.0"
 

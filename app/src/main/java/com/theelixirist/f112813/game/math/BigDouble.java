@@ -1,5 +1,7 @@
 package com.theelixirist.f112813.game.math;
 
+import org.jetbrains.annotations.NotNull;
+
 public class BigDouble {
     private double significand;
     private int exponent;
@@ -17,6 +19,13 @@ public class BigDouble {
 
     public BigDouble(double value) {
         this.significand = value;
+        normalize();
+    }
+
+    public BigDouble(String scientificNotation) {
+        String[] parts = scientificNotation.split("e");
+        this.significand = Double.parseDouble(parts[0]);
+        this.exponent = Integer.parseInt(parts[1]);
         normalize();
     }
 
@@ -134,5 +143,10 @@ public class BigDouble {
             significand *= 10.0;
             exponent--;
         }
+    }
+
+    @NotNull
+    public String toString() {
+        return significand + "e" + exponent;
     }
 }

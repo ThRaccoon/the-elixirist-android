@@ -1,5 +1,6 @@
 package com.theelixirist.f112813.database.daos;
 
+import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
@@ -8,6 +9,7 @@ import com.theelixirist.f112813.database.entities.UpgradeEntity;
 
 import java.util.List;
 
+@Dao
 public interface UpgradeDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void create(UpgradeEntity entity);

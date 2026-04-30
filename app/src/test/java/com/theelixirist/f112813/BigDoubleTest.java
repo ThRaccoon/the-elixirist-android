@@ -14,6 +14,16 @@ import org.junit.Test;
 public class BigDoubleTest {
     private static final double EPSILON = 1e-9;
 
+    /// /////// BigDouble(String scientificNotation) //////////
+
+    @Test
+    public void BigDouble_control_inputConvertedToBigDouble() {
+        BigDouble a = new BigDouble("1.2e3");
+
+        assertEquals(1.2, a.getSignificand(), EPSILON);
+        assertEquals(3, a.getExponent());
+    }
+
 
     /// /////// add(BigDouble other), add(double significand, int exponent) //////////
 
@@ -72,7 +82,7 @@ public class BigDoubleTest {
     }
 
     @Test
-    public void add_default_otherSigScaledToThisExpAndAddedToThisSig() {
+    public void add_control_otherSigScaledToThisExpAndAddedToThisSig() {
         BigDouble a = new BigDouble(1.2, 3);
         a.add(4.5, 6);
 
@@ -102,7 +112,7 @@ public class BigDoubleTest {
     }
 
     @Test
-    public void multiply_default_sigsMultipliedAndExpsAdded() {
+    public void multiply_control_sigsMultipliedAndExpsAdded() {
         BigDouble a = new BigDouble(1.2, 3);
         a.multiply(4.5, 6);
 
@@ -132,7 +142,7 @@ public class BigDoubleTest {
     }
 
     @Test
-    public void divide_default_sigsDividedAndExpsSubtracted() {
+    public void divide_control_sigsDividedAndExpsSubtracted() {
         BigDouble a = new BigDouble(1.2, 3);
         a.divide(4.5, 6);
 
@@ -299,10 +309,20 @@ public class BigDoubleTest {
     }
 
     @Test
-    public void normalize_default_unchanged() {
+    public void normalize_control_unchanged() {
         BigDouble a = new BigDouble(1.2, 3);
 
         assertEquals(1.2, a.getSignificand(), EPSILON);
         assertEquals(3, a.getExponent());
+    }
+
+
+    /// /////// toString() //////////
+
+    @Test
+    public void toString_control_thisConvertedToSciNotString() {
+        BigDouble a = new BigDouble(1.2, 3);
+
+        assertEquals("1.2e3", a.toString());
     }
 }
