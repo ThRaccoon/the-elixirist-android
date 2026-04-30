@@ -1,6 +1,7 @@
 package com.theelixirist.f112813.game;
 
 import com.theelixirist.f112813.database.dtos.ChronicleDto;
+import com.theelixirist.f112813.database.mappers.ChronicleMapper;
 import com.theelixirist.f112813.database.repositories.ChronicleRepository;
 import com.theelixirist.f112813.game.math.BigDouble;
 
@@ -75,5 +76,9 @@ public class Chronicle {
 
             gameState.setCurrentElixirs(new BigDouble(dto.currentElixirs));
         }
+    }
+
+    public void saveToDatabase() {
+        chronicleRepository.update(ChronicleMapper.fromRuntime(this, gameState));
     }
 }
