@@ -34,6 +34,7 @@ public class ElixiristApp extends Application {
         definitionRegistry = new DefinitionRegistry(this);
 
         gameState = new GameState(
+                definitionRegistry,
                 new GeneratorRepository(database.generatorDao()),
                 new UpgradeRepository(database.upgradeDao()),
                 new CatalystRepository(database.catalystDao()),
@@ -45,6 +46,7 @@ public class ElixiristApp extends Application {
                 new ChronicleRepository(database.chronicleDao()),
                 gameState
         );
+        chronicle.loadFromDatabase();
 
         audioManager = new AudioManager(this);
     }

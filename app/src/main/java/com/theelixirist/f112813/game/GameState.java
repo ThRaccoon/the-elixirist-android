@@ -12,6 +12,10 @@ import com.theelixirist.f112813.database.repositories.BuffRepository;
 import com.theelixirist.f112813.database.repositories.CatalystRepository;
 import com.theelixirist.f112813.database.repositories.GeneratorRepository;
 import com.theelixirist.f112813.database.repositories.UpgradeRepository;
+import com.theelixirist.f112813.game.definitions.BuffDefinition;
+import com.theelixirist.f112813.game.definitions.DefinitionRegistry;
+import com.theelixirist.f112813.game.definitions.GeneratorDefinition;
+import com.theelixirist.f112813.game.definitions.UpgradeDefinition;
 import com.theelixirist.f112813.game.math.BigDouble;
 import com.theelixirist.f112813.game.runtime.Buff;
 import com.theelixirist.f112813.game.runtime.Catalyst;
@@ -23,22 +27,26 @@ import java.util.HashMap;
 public class GameState {
     private BigDouble currentElixirs;
 
-    private final GeneratorRepository generatorRepository;
-    private final UpgradeRepository upgradeRepository;
-    private final CatalystRepository catalystRepository;
-    private final BuffRepository buffRepository;
-
     private final HashMap<Integer, Generator> generators = new HashMap<>();
     private final HashMap<Integer, Upgrade> upgrades = new HashMap<>();
     private final HashMap<Integer, Catalyst> catalysts = new HashMap<>();
     private final HashMap<Integer, Buff> buffs = new HashMap<>();
 
+    private final DefinitionRegistry definitionRegistry;
+
+    private final GeneratorRepository generatorRepository;
+    private final UpgradeRepository upgradeRepository;
+    private final CatalystRepository catalystRepository;
+    private final BuffRepository buffRepository;
+
     public GameState(
+            DefinitionRegistry definitionRegistry,
             GeneratorRepository generatorRepository,
             UpgradeRepository upgradeRepository,
             CatalystRepository catalystRepository,
             BuffRepository buffRepository
     ) {
+        this.definitionRegistry = definitionRegistry;
         this.generatorRepository = generatorRepository;
         this.upgradeRepository = upgradeRepository;
         this.catalystRepository = catalystRepository;
@@ -99,6 +107,63 @@ public class GameState {
 
     public void putBuff(Buff buff) {
         buffs.put(buff.getId(), buff);
+    }
+
+    public void addElixirs(BigDouble amount) {
+        currentElixirs.add(amount);
+    }
+
+    public BigDouble computeElixirsPerClick() {
+        double multiplier = 1.0;
+
+        for (Upgrade upgrade : upgrades.values()) {
+            UpgradeDefinition def = definitionRegistry.getUpgradeDefinition(upgrade.getId());
+            if (def == null) continue;
+            if (def.affectsClick) multiplier *= def.yieldMultiplier;
+        }
+
+        for (Buff buff : buffs.values()) {
+            BuffDefinition def = definitionRegistry.getBuffDefinition(buff.getId());
+            if (def == null) continue;
+            if (def.affectsClick) multiplier *= def.yieldMultiplier;
+        }
+
+        return new BigDouble(multiplier, 0);
+    }
+
+    public BigDouble computeElixirsPerSecond() {
+        BigDouble total = new BigDouble(0, 0);
+
+        for (Generator generator : generators.values()) {
+            GeneratorDefinition def = definitionRegistry.getGeneratorDefinition(generator.getId());
+            if (def == null) continue;
+
+            BigDouble yield = new BigDouble(def.yieldPerSecond);
+            yield.multiply(new BigDouble(generator.getCurrentCount(), 0));
+
+            double multiplier = 1.0;
+
+            for (Upgrade upgrade : upgrades.values()) {
+                UpgradeDefinition uDef = definitionRegistry.getUpgradeDefinition(upgrade.getId());
+                if (uDef == null) continue;
+                if (uDef.affectsAllGenerators || uDef.affectedGeneratorIds.contains(generator.getId())) {
+                    multiplier *= uDef.yieldMultiplier;
+                }
+            }
+
+            for (Buff buff : buffs.values()) {
+                BuffDefinition bDef = definitionRegistry.getBuffDefinition(buff.getId());
+                if (bDef == null) continue;
+                if (bDef.affectsAllGenerators || bDef.affectedGeneratorIds.contains(generator.getId())) {
+                    multiplier *= bDef.yieldMultiplier;
+                }
+            }
+
+            yield.multiply(new BigDouble(multiplier, 0));
+            total.add(yield);
+        }
+
+        return total;
     }
 
     public void loadFromDatabase() {

@@ -13,7 +13,7 @@ public class UpgradeDefinition {
     public String name;
     public String desc;
 
-    public BigDouble cost;
+    public String cost;
 
     public double yieldMultiplier;
 

@@ -2,6 +2,7 @@ package com.theelixirist.f112813.database.repositories;
 
 import com.theelixirist.f112813.database.daos.ChronicleDao;
 import com.theelixirist.f112813.database.dtos.ChronicleDto;
+import com.theelixirist.f112813.database.entities.ChronicleEntity;
 import com.theelixirist.f112813.database.mappers.ChronicleMapper;
 
 public class ChronicleRepository {
@@ -16,7 +17,9 @@ public class ChronicleRepository {
     }
 
     public ChronicleDto read() {
-        return ChronicleMapper.toDto(dao.read());
+        ChronicleEntity entity = dao.read();
+        if (entity == null) return null;
+        return ChronicleMapper.toDto(entity);
     }
 
     public void update(ChronicleDto dto) {

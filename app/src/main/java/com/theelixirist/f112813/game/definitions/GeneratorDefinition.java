@@ -12,10 +12,10 @@ public class GeneratorDefinition {
     public String name;
     public String desc;
 
-    public BigDouble baseCost;
+    public String baseCost;
     public double costGrowthRate;
 
-    public BigDouble yieldPerSecond;
+    public String yieldPerSecond;
 
     public List<Requirement> requirements;
 }

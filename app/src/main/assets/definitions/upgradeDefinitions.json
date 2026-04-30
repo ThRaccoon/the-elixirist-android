@@ -4,7 +4,7 @@
     "icon": "upg_briar_sprig_1",
     "name": "Briar Sprig Upgrade I",
     "desc": "Briar Sprigs produce twice as much.",
-    "cost": 1e2,
+    "cost": "1e2",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -16,19 +16,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 10,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 1,
-        "threshold": 1
+        "threshold": "1e0"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 1,
-        "threshold": 1
+        "threshold": "1e0"
       }
     ]
   },
@@ -37,7 +37,7 @@
     "icon": "upg_briar_sprig_2",
     "name": "Briar Sprig Upgrade II",
     "desc": "Briar Sprigs produce twice as much.",
-    "cost": 5e2,
+    "cost": "5e2",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -49,19 +49,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 11,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 1,
-        "threshold": 5
+        "threshold": "5e0"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 1,
-        "threshold": 5
+        "threshold": "5e0"
       }
     ]
   },
@@ -70,7 +70,7 @@
     "icon": "upg_briar_sprig_3",
     "name": "Briar Sprig Upgrade III",
     "desc": "Briar Sprigs produce twice as much.",
-    "cost": 1e4,
+    "cost": "1e4",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -82,19 +82,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 12,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 1,
-        "threshold": 25
+        "threshold": "2.5e1"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 1,
-        "threshold": 25
+        "threshold": "2.5e1"
       }
     ]
   },
@@ -103,7 +103,7 @@
     "icon": "upg_weeping_rose_1",
     "name": "Weeping Rose Upgrade I",
     "desc": "Weeping Roses produce twice as much.",
-    "cost": 1e3,
+    "cost": "1e3",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -115,19 +115,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 20,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 2,
-        "threshold": 1
+        "threshold": "1e0"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 2,
-        "threshold": 1
+        "threshold": "1e0"
       }
     ]
   },
@@ -136,7 +136,7 @@
     "icon": "upg_weeping_rose_2",
     "name": "Weeping Rose Upgrade II",
     "desc": "Weeping Roses produce twice as much.",
-    "cost": 5e3,
+    "cost": "5e3",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -148,19 +148,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 21,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 2,
-        "threshold": 5
+        "threshold": "5e0"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 2,
-        "threshold": 5
+        "threshold": "5e0"
       }
     ]
   },
@@ -169,7 +169,7 @@
     "icon": "upg_weeping_rose_3",
     "name": "Weeping Rose Upgrade III",
     "desc": "Weeping Roses produce twice as much.",
-    "cost": 5e4,
+    "cost": "5e4",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -181,19 +181,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 22,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 2,
-        "threshold": 25
+        "threshold": "2.5e1"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 2,
-        "threshold": 25
+        "threshold": "2.5e1"
       }
     ]
   },
@@ -202,7 +202,7 @@
     "icon": "upg_rootwarden_1",
     "name": "Rootwarden Upgrade I",
     "desc": "Rootwardens produce twice as much.",
-    "cost": 1.1e4,
+    "cost": "1.1e4",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -214,19 +214,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 30,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 3,
-        "threshold": 1
+        "threshold": "1e0"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 3,
-        "threshold": 1
+        "threshold": "1e0"
       }
     ]
   },
@@ -235,7 +235,7 @@
     "icon": "upg_rootwarden_2",
     "name": "Rootwarden Upgrade II",
     "desc": "Rootwardens produce twice as much.",
-    "cost": 5.5e4,
+    "cost": "5.5e4",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -247,19 +247,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 31,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 3,
-        "threshold": 5
+        "threshold": "5e0"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 3,
-        "threshold": 5
+        "threshold": "5e0"
       }
     ]
   },
@@ -268,7 +268,7 @@
     "icon": "upg_rootwarden_3",
     "name": "Rootwarden Upgrade III",
     "desc": "Rootwardens produce twice as much.",
-    "cost": 5.5e5,
+    "cost": "5.5e5",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -280,19 +280,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 32,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 3,
-        "threshold": 25
+        "threshold": "2.5e1"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 3,
-        "threshold": 25
+        "threshold": "2.5e1"
       }
     ]
   },
@@ -301,7 +301,7 @@
     "icon": "upg_pumpkin_lurker_1",
     "name": "Pumpkin Lurker Upgrade I",
     "desc": "Pumpkin Lurkers produce twice as much.",
-    "cost": 1.2e5,
+    "cost": "1.2e5",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -313,19 +313,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 40,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 4,
-        "threshold": 1
+        "threshold": "1e0"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 4,
-        "threshold": 1
+        "threshold": "1e0"
       }
     ]
   },
@@ -334,7 +334,7 @@
     "icon": "upg_pumpkin_lurker_2",
     "name": "Pumpkin Lurker Upgrade II",
     "desc": "Pumpkin Lurkers produce twice as much.",
-    "cost": 6e5,
+    "cost": "6e5",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -346,19 +346,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 41,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 4,
-        "threshold": 5
+        "threshold": "5e0"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 4,
-        "threshold": 5
+        "threshold": "5e0"
       }
     ]
   },
@@ -367,7 +367,7 @@
     "icon": "upg_pumpkin_lurker_3",
     "name": "Pumpkin Lurker Upgrade III",
     "desc": "Pumpkin Lurkers twice as much.",
-    "cost": 6e6,
+    "cost": "6e6",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -379,19 +379,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 42,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 4,
-        "threshold": 25
+        "threshold": "2.5e1"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 4,
-        "threshold": 25
+        "threshold": "2.5e1"
       }
     ]
   },
@@ -400,7 +400,7 @@
     "icon": "upg_gourd_hydra_1",
     "name": "Gourd Hydra Upgrade I",
     "desc": "Gourd Hydras produce twice as much.",
-    "cost": 1.3e6,
+    "cost": "1.3e6",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -412,19 +412,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 50,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 5,
-        "threshold": 1
+        "threshold": "1e0"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 5,
-        "threshold": 1
+        "threshold": "1e0"
       }
     ]
   },
@@ -433,7 +433,7 @@
     "icon": "upg_gourd_hydra_2",
     "name": "Gourd Hydra Upgrade II",
     "desc": "Gourd Hydras produce twice as much.",
-    "cost": 6.5e6,
+    "cost": "6.5e6",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -445,19 +445,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 51,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 5,
-        "threshold": 5
+        "threshold": "5e0"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 5,
-        "threshold": 5
+        "threshold": "5e0"
       }
     ]
   },
@@ -466,7 +466,7 @@
     "icon": "upg_gourd_hydra_3",
     "name": "Gourd Hydra Upgrade III",
     "desc": "Gourd Hydras produce twice as much.",
-    "cost": 6.5e7,
+    "cost": "6.5e7",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -478,19 +478,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 52,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 5,
-        "threshold": 25
+        "threshold": "2.5e1"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 5,
-        "threshold": 25
+        "threshold": "2.5e1"
       }
     ]
   },
@@ -499,7 +499,7 @@
     "icon": "upg_rimecaller_1",
     "name": "Rimecaller Upgrade I",
     "desc": "Rimecallers produce twice as much.",
-    "cost": 1.4e7,
+    "cost": "1.4e7",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -511,19 +511,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 60,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 6,
-        "threshold": 1
+        "threshold": "1e0"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 6,
-        "threshold": 1
+        "threshold": "1e0"
       }
     ]
   },
@@ -532,7 +532,7 @@
     "icon": "upg_rimecaller_2",
     "name": "Rimecaller Upgrade II",
     "desc": "Rimecallers produce twice as much.",
-    "cost": 7e7,
+    "cost": "7e7",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -544,19 +544,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 61,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 6,
-        "threshold": 5
+        "threshold": "5e0"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 6,
-        "threshold": 5
+        "threshold": "5e0"
       }
     ]
   },
@@ -565,7 +565,7 @@
     "icon": "upg_rimecaller_3",
     "name": "Rimecaller Upgrade III",
     "desc": "Rimecallers produce twice as much.",
-    "cost": 7e8,
+    "cost": "7e8",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -577,19 +577,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 62,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 6,
-        "threshold": 25
+        "threshold": "2.5e1"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 6,
-        "threshold": 25
+        "threshold": "2.5e1"
       }
     ]
   },
@@ -598,7 +598,7 @@
     "icon": "upg_gilded_gryphlet_1",
     "name": "Gilded Gryphlet Upgrade I",
     "desc": "Gilded Gryphlets produce twice as much.",
-    "cost": 2e8,
+    "cost": "2e8",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -610,19 +610,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 70,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 7,
-        "threshold": 1
+        "threshold": "1e0"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 7,
-        "threshold": 1
+        "threshold": "1e0"
       }
     ]
   },
@@ -631,7 +631,7 @@
     "icon": "upg_gilded_gryphlet_2",
     "name": "Gilded Gryphlet Upgrade II",
     "desc": "Gilded Gryphlets produce twice as much.",
-    "cost": 1e9,
+    "cost": "1e9",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -643,19 +643,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 71,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 7,
-        "threshold": 5
+        "threshold": "5e0"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 7,
-        "threshold": 5
+        "threshold": "5e0"
       }
     ]
   },
@@ -664,7 +664,7 @@
     "icon": "upg_gilded_gryphlet_3",
     "name": "Gilded Gryphlet Upgrade III",
     "desc": "Gilded Gryphlets produce twice as much.",
-    "cost": 1e10,
+    "cost": "1e10",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -676,19 +676,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 72,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 7,
-        "threshold": 25
+        "threshold": "2.5e1"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 7,
-        "threshold": 25
+        "threshold": "2.5e1"
       }
     ]
   },
@@ -697,7 +697,7 @@
     "icon": "upg_the_grandbrewer_1",
     "name": "The Grandbrewer Upgrade I",
     "desc": "The Grandbrewers produce twice as much.",
-    "cost": 3.3e9,
+    "cost": "3.3e9",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -709,19 +709,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 80,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 8,
-        "threshold": 1
+        "threshold": "1e0"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 8,
-        "threshold": 1
+        "threshold": "1e0"
       }
     ]
   },
@@ -730,7 +730,7 @@
     "icon": "upg_the_grandbrewer_2",
     "name": "The Grandbrewer Upgrade II",
     "desc": "The Grandbrewers produce twice as much.",
-    "cost": 1.65e10,
+    "cost": "1.65e10",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -742,19 +742,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 81,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 8,
-        "threshold": 5
+        "threshold": "5e0"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 8,
-        "threshold": 5
+        "threshold": "5e0"
       }
     ]
   },
@@ -763,7 +763,7 @@
     "icon": "upg_the_grandbrewer_3",
     "name": "The Grandbrewer Upgrade III",
     "desc": "The Grandbrewers produce twice as much.",
-    "cost": 1.65e11,
+    "cost": "1.65e11",
     "yieldMultiplier": 2,
     "affectsClick": false,
     "affectsAllGenerators": false,
@@ -775,19 +775,19 @@
         "gate": "VISIBILITY",
         "condition": "UPGRADE_COUNT_BY_ID",
         "targetId": 82,
-        "threshold": 0
+        "threshold": "0e0"
       },
       {
         "gate": "VISIBILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 8,
-        "threshold": 25
+        "threshold": "2.5e1"
       },
       {
         "gate": "PURCHASABILITY",
         "condition": "GENERATOR_COUNT_BY_ID",
         "targetId": 8,
-        "threshold": 25
+        "threshold": "2.5e1"
       }
     ]
   }
