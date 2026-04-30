@@ -131,6 +131,12 @@ public class GameState {
         return new BigDouble(multiplier, 0);
     }
 
+    public boolean spendElixirs(BigDouble amount) {
+        if (currentElixirs.compareTo(amount) < 0) return false;
+        currentElixirs.subtract(amount);
+        return true;
+    }
+
     public BigDouble computeElixirsPerSecond() {
         BigDouble total = new BigDouble(0, 0);
 

@@ -4,16 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_market"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical">
+    android:fitsSystemWindows="true">
 
     <LinearLayout
+        android:id="@+id/market_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:background="#4D000000"
         android:gravity="center"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:padding="8dp">
 
         <TextView
@@ -24,14 +24,26 @@
             android:text="@string/market_title"
             android:textColor="#FFFFFF"
             android:textSize="34sp" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/market_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            app:tabTextColor="#BFFFFFFF"
+            app:tabSelectedTextColor="#FFFFFF"
+            app:tabIndicatorColor="#FFFFFF" />
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/market_view_pager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true" />
+        android:layout_height="match_parent"
+        android:layout_above="@id/market_bottom_nav"
+        android:layout_below="@id/market_header" />
 
     <LinearLayout
+        android:id="@+id/market_bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -53,8 +65,7 @@
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:background="?android:attr/listDivider"
-            android:backgroundTint="#00FFFFFF" />
+            android:background="#00FFFFFF" />
 
         <LinearLayout
             android:layout_width="@dimen/btn_icon_width"
@@ -83,8 +94,7 @@
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:background="?android:attr/listDivider"
-            android:backgroundTint="#00FFFFFF" />
+            android:background="#00FFFFFF" />
 
         <ImageButton
             android:id="@+id/market_ib_chronicle"

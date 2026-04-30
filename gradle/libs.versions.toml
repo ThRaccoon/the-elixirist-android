@@ -10,6 +10,7 @@ constraintlayout = "2.2.1"
 recyclerview = "1.4.0"
 gson = "2.13.2"
 room = "2.8.4"
+viewpager2 = "1.1.0"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -23,6 +24,7 @@ recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager2" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

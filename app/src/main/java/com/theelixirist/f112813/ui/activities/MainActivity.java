@@ -1,7 +1,11 @@
 package com.theelixirist.f112813.ui.activities;
 
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -16,6 +20,7 @@ import com.theelixirist.f112813.R;
 import com.theelixirist.f112813.game.Chronicle;
 import com.theelixirist.f112813.game.GameState;
 import com.theelixirist.f112813.game.math.BigDoubleFormatter;
+import com.theelixirist.f112813.game.services.GameTickService;
 import com.theelixirist.f112813.ui.views.PixelPerfectImageButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +31,23 @@ public class MainActivity extends AppCompatActivity {
     ImageButton ibMain;
     ImageButton ibMarket;
     ImageButton ibChronicle;
+
+    private  boolean isBound = false;
+    private GameTickService tickService;
+    private final ServiceConnection connection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            GameTickService.GameTickBinder binder = (GameTickService.GameTickBinder) service;
+            tickService = binder.getService();
+            tickService.setOnTick(() -> runOnUiThread(() -> updateUI()));
+            isBound = true;
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            isBound = false;
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +74,23 @@ public class MainActivity extends AppCompatActivity {
         ibMain.setOnClickListener(v -> onMainClicked());
         ibMarket.setOnClickListener(v -> onMarketClicked());
         ibChronicle.setOnClickListener(v -> onChronicleClicked());
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Intent intent = new Intent(this, GameTickService.class);
+        startService(intent);
+        bindService(intent, connection, Context.BIND_AUTO_CREATE);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (isBound) {
+            unbindService(connection);
+            isBound = false;
+        }
     }
 
     private void onBrew() {
