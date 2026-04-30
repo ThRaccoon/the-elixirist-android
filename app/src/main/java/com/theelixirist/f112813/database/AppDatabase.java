@@ -10,12 +10,12 @@ import com.theelixirist.f112813.database.daos.GeneratorDao;
 import com.theelixirist.f112813.database.daos.UpgradeDao;
 import com.theelixirist.f112813.database.entities.BuffEntity;
 import com.theelixirist.f112813.database.entities.CatalystEntity;
+import com.theelixirist.f112813.database.entities.ChronicleEntity;
 import com.theelixirist.f112813.database.entities.GeneratorEntity;
 import com.theelixirist.f112813.database.entities.UpgradeEntity;
-import com.theelixirist.f112813.game.Chronicle;
 
 @Database(entities = {
-        Chronicle.class,
+        ChronicleEntity.class,
         GeneratorEntity.class,
         UpgradeEntity.class,
         CatalystEntity.class,
