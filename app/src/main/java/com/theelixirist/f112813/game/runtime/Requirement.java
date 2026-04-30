@@ -1,5 +1,7 @@
 package com.theelixirist.f112813.game.runtime;
 
+import com.theelixirist.f112813.game.Chronicle;
+import com.theelixirist.f112813.game.GameState;
 import com.theelixirist.f112813.game.math.BigDouble;
 
 public class Requirement {
@@ -52,32 +54,37 @@ public class Requirement {
         return threshold;
     }
 
-    public boolean isMet() {
+    public boolean isMet(GameState gameState, Chronicle chronicle) {
         switch (condition) {
             // Elixir
             case ELIXIR_TOTAL_PRODUCED: {
-                return false; // To Do
+                return chronicle.getTotalElixirsBrewed().compareTo(threshold) >= 0;
             }
 
             // Generator
             case GENERATOR_COUNT_ALL: {
-                return false; // To Do
+                int count = 0;
+                for (Generator generator : gameState.getGenerators().values()) {
+                    count += generator.getCurrentCount();
+                }
+                return new BigDouble(count).compareTo(threshold) >= 0;
             }
             case GENERATOR_COUNT_BY_ID: {
-                return false; // To Do
+                Generator generator = gameState.getGenerator(targetId);
+                return generator != null && new BigDouble(generator.getCurrentCount()).compareTo(threshold) >= 0;
             }
 
             // Upgrade
             case UPGRADE_COUNT_ALL: {
-                return false; // To Do
+                return new BigDouble(gameState.getUpgrades().size()).compareTo(threshold) >= 0;
             }
             case UPGRADE_COUNT_BY_ID: {
-                return false; // To Do
+                return gameState.getUpgrade(targetId) != null;
             }
 
             // Catalyst
             case CATALYST_TOTAL_COLLECTED: {
-                return false; // To Do
+                return new BigDouble(chronicle.getTotalCatalystsCollected()).compareTo(threshold) >= 0;
             }
 
             default: {
