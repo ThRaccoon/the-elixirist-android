@@ -38,7 +38,8 @@ public class UpgradesAdapter extends RecyclerView.Adapter<UpgradesAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_market, parent, false);
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_market, parent, false);
         return new ViewHolder(view);
     }
 
@@ -48,19 +49,20 @@ public class UpgradesAdapter extends RecyclerView.Adapter<UpgradesAdapter.ViewHo
 
         boolean visible = true;
         for (Requirement r : def.requirements) {
-            if (r.getGate() == Requirement.Gate.VISIBILITY && !r.isMet(gameState, chronicle)) {
+            if (r.getGate() != Requirement.Gate.VISIBILITY) continue;
+            if (r.getCondition() == Requirement.Condition.UPGRADE_COUNT_BY_ID
+                    && r.getTargetId() == def.id) continue;
+            if (!r.isMet(gameState, chronicle)) {
                 visible = false;
                 break;
             }
         }
 
         holder.itemView.setVisibility(visible ? View.VISIBLE : View.GONE);
-        holder.itemView.setLayoutParams(new RecyclerView.LayoutParams(
-                visible ? RecyclerView.LayoutParams.MATCH_PARENT : 0,
-                visible ? RecyclerView.LayoutParams.WRAP_CONTENT : 0
-        ));
-
-        if (!visible) return;
+        if (!visible) {
+            holder.itemView.setOnClickListener(null);
+            return;
+        }
 
         holder.ivIcon.setImageResource(ResourceResolver.drawable(def.icon));
         holder.tvName.setText(def.name);
@@ -70,20 +72,18 @@ public class UpgradesAdapter extends RecyclerView.Adapter<UpgradesAdapter.ViewHo
         boolean alreadyOwned = gameState.getUpgrade(def.id) != null;
         holder.tvOwned.setText(alreadyOwned ? "✓" : "");
 
+        holder.itemView.setAlpha(alreadyOwned ? 0.5f : 1.0f);
+
         if (alreadyOwned) {
-            holder.itemView.setAlpha(0.5f);
+            holder.itemView.setOnClickListener(null);
             return;
         }
 
         holder.itemView.setOnClickListener(v -> {
-            boolean canBuy = true;
             for (Requirement r : def.requirements) {
-                if (r.getGate() == Requirement.Gate.PURCHASABILITY && !r.isMet(gameState, chronicle)) {
-                    canBuy = false;
-                    break;
-                }
+                if (r.getGate() == Requirement.Gate.PURCHASABILITY
+                        && !r.isMet(gameState, chronicle)) return;
             }
-            if (!canBuy) return;
             if (!gameState.spendElixirs(new BigDouble(def.cost))) return;
 
             gameState.putUpgrade(new Upgrade(def.id));
