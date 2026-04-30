@@ -35,7 +35,7 @@
         android:padding="8dp">
 
         <ImageButton
-            android:id="@+id/chronicle_ib_main"
+            android:id="@+id/market_ib_main"
             android:layout_width="@dimen/btn_icon_width"
             android:layout_height="@dimen/btn_icon_height"
             android:layout_weight="1"
@@ -59,7 +59,7 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:id="@+id/chronicle_ib_market"
+                android:id="@+id/market_ib_market"
                 android:layout_width="@dimen/btn_icon_selected_width"
                 android:layout_height="@dimen/btn_icon_selected_height"
                 android:background="#00FFFFFF"
@@ -72,7 +72,6 @@
                 android:layout_height="4dp"
                 android:layout_marginTop="2dp"
                 android:background="#FFFFFF" />
-
         </LinearLayout>
 
         <View
@@ -83,7 +82,7 @@
             android:backgroundTint="#00FFFFFF" />
 
         <ImageButton
-            android:id="@+id/chronicle_ib_chronicle"
+            android:id="@+id/market_ib_chronicle"
             android:layout_width="@dimen/btn_icon_width"
             android:layout_height="@dimen/btn_icon_height"
             android:layout_weight="1"
@@ -91,6 +90,5 @@
             android:contentDescription="@string/cont_desc_none"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/btn_chronicle" />
-
     </LinearLayout>
 </RelativeLayout>
