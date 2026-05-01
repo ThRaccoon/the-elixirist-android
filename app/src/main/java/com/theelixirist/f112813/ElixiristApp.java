@@ -11,9 +11,9 @@ import com.theelixirist.f112813.database.repositories.CatalystRepository;
 import com.theelixirist.f112813.database.repositories.ChronicleRepository;
 import com.theelixirist.f112813.database.repositories.GeneratorRepository;
 import com.theelixirist.f112813.database.repositories.UpgradeRepository;
-import com.theelixirist.f112813.game.Chronicle;
-import com.theelixirist.f112813.game.GameState;
-import com.theelixirist.f112813.game.templates.TemplateRegistry;
+import com.theelixirist.f112813.game.state.Chronicle;
+import com.theelixirist.f112813.game.state.GameState;
+import com.theelixirist.f112813.game.templates.registry.TemplateRegistry;
 import com.theelixirist.f112813.game.managers.AudioManager;
 
 public class ElixiristApp extends Application {

@@ -1,4 +1,4 @@
-package com.theelixirist.f112813.game.templates;
+package com.theelixirist.f112813.ui;
 
 import android.util.Log;
 

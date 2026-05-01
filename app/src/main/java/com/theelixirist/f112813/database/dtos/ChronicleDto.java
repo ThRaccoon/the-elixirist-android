@@ -10,5 +10,5 @@ public class ChronicleDto {
 
     public String totalElixirsBrewed;
     public long totalCatalystsCollected;
-    public long totalBuffsTriggered;
+    public long totalEffectsTriggered;
 }

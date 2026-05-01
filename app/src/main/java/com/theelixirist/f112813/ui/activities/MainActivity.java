@@ -13,8 +13,8 @@ import androidx.core.view.WindowInsetsControllerCompat;
 
 import com.theelixirist.f112813.ElixiristApp;
 import com.theelixirist.f112813.R;
-import com.theelixirist.f112813.game.Chronicle;
-import com.theelixirist.f112813.game.GameState;
+import com.theelixirist.f112813.game.state.Chronicle;
+import com.theelixirist.f112813.game.state.GameState;
 import com.theelixirist.f112813.game.math.BigDoubleFormatter;
 import com.theelixirist.f112813.ui.views.PixelPerfectImageButton;
 

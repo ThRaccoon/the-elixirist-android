@@ -1,7 +1,7 @@
 package com.theelixirist.f112813.game.runtime;
 
-import com.theelixirist.f112813.game.Chronicle;
-import com.theelixirist.f112813.game.GameState;
+import com.theelixirist.f112813.game.state.Chronicle;
+import com.theelixirist.f112813.game.state.GameState;
 import com.theelixirist.f112813.game.math.BigDouble;
 
 public class Requirement {
@@ -58,33 +58,28 @@ public class Requirement {
         switch (condition) {
             // Elixir
             case ELIXIR_TOTAL_PRODUCED: {
-                return chronicle.getTotalElixirsBrewed().compareTo(threshold) >= 0;
+                return false;
             }
 
             // Generator
             case GENERATOR_COUNT_ALL: {
-                int count = 0;
-                for (Generator generator : gameState.getGenerators().values()) {
-                    count += generator.getCurrentCount();
-                }
-                return new BigDouble(count).compareTo(threshold) >= 0;
+                return false;
             }
             case GENERATOR_COUNT_BY_ID: {
-                Generator generator = gameState.getGenerator(targetId);
-                return generator != null && new BigDouble(generator.getCurrentCount()).compareTo(threshold) >= 0;
+                return false;
             }
 
             // Upgrade
             case UPGRADE_COUNT_ALL: {
-                return new BigDouble(gameState.getUpgrades().size()).compareTo(threshold) >= 0;
+                return false;
             }
             case UPGRADE_COUNT_BY_ID: {
-                return gameState.getUpgrade(targetId) != null;
+                return false;
             }
 
             // Catalyst
             case CATALYST_TOTAL_COLLECTED: {
-                return new BigDouble(chronicle.getTotalCatalystsCollected()).compareTo(threshold) >= 0;
+                return false;
             }
 
             default: {

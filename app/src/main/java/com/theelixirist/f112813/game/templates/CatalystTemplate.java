@@ -12,5 +12,5 @@ public class CatalystTemplate {
     public double rollWeight;
     public long despawnDurationMs;
 
-    public Set<Integer> buffPoolIds;
+    public Set<Integer> effectPoolIds;
 }
