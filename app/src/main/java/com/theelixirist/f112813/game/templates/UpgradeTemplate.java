@@ -1,6 +1,6 @@
 package com.theelixirist.f112813.game.templates;
 
-import com.theelixirist.f112813.game.runtime.Requirement;
+import com.theelixirist.f112813.game.runtime.requirement.Requirement;
 
 import java.util.List;
 import java.util.Set;

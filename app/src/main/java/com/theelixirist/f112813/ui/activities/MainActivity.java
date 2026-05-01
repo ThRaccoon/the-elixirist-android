@@ -13,8 +13,7 @@ import androidx.core.view.WindowInsetsControllerCompat;
 
 import com.theelixirist.f112813.ElixiristApp;
 import com.theelixirist.f112813.R;
-import com.theelixirist.f112813.game.state.Chronicle;
-import com.theelixirist.f112813.game.state.GameState;
+import com.theelixirist.f112813.game.math.BigDouble;
 import com.theelixirist.f112813.game.math.BigDoubleFormatter;
 import com.theelixirist.f112813.ui.views.PixelPerfectImageButton;
 
@@ -26,6 +25,11 @@ public class MainActivity extends AppCompatActivity {
     ImageButton ibMain;
     ImageButton ibMarket;
     ImageButton ibChronicle;
+
+    // Game Vars
+    BigDouble totalElixirs = new BigDouble(0, 0);
+    BigDouble elixirsPerClick = new BigDouble(1, 0);
+    BigDouble elixirsPerSecond = new BigDouble(0, 0);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,13 +59,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onBrew() {
-        GameState gameState = ElixiristApp.get(this).getGameState();
-        Chronicle chronicle = ElixiristApp.get(this).getChronicle();
-
-        gameState.addElixirs(gameState.computeElixirsPerClick());
-        chronicle.addBrewedElixirs(gameState.computeElixirsPerClick());
-
-        updateUI();
+        incrementElixirs(elixirsPerClick);
 
         ElixiristApp.get(this).getAudioManager().play("brew", 1);
 
@@ -101,12 +99,16 @@ public class MainActivity extends AppCompatActivity {
         ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
     }
 
-    private void updateUI() {
-        GameState gameState = ElixiristApp.get(this).getGameState();
+    private void incrementElixirs(BigDouble amount) {
+        totalElixirs.add(amount);
+        updateUI();
+    }
 
-        tvElixirsCount.setText(getString(R.string.elixirs_count_label,
-                BigDoubleFormatter.format(gameState.getCurrentElixirs())));
-        tvElixirsPerSecond.setText(getString(R.string.elixirs_per_second_label,
-                BigDoubleFormatter.format(gameState.computeElixirsPerSecond())));
+    private void updateUI() {
+        String formattedTotalPotions = BigDoubleFormatter.format(totalElixirs);
+        String formattedPotionsPerSecond = BigDoubleFormatter.format(elixirsPerSecond);
+
+        tvElixirsCount.setText(getString(R.string.elixirs_count_label, formattedTotalPotions));
+        tvElixirsPerSecond.setText(getString(R.string.elixirs_per_second_label, formattedPotionsPerSecond));
     }
 }

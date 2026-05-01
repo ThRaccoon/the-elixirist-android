@@ -1,4 +1,4 @@
-package com.theelixirist.f112813.ui;
+package com.theelixirist.f112813.ui.utils;
 
 import android.util.Log;
 

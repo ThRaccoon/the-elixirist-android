@@ -14,6 +14,7 @@ import com.theelixirist.f112813.ElixiristApp;
 import com.theelixirist.f112813.R;
 
 public class MarketActivity extends AppCompatActivity {
+    // Views
     ImageButton ibMain;
     ImageButton ibMarket;
     ImageButton ibChronicle;
@@ -42,7 +43,9 @@ public class MarketActivity extends AppCompatActivity {
     private void onMainClicked() {
         Intent intent = new Intent(MarketActivity.this, MainActivity.class);
         startActivity(intent);
+
         overridePendingTransition(0, 0);
+
         ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
     }
 
@@ -53,7 +56,9 @@ public class MarketActivity extends AppCompatActivity {
     private void onChronicleClicked() {
         Intent intent = new Intent(MarketActivity.this, ChronicleActivity.class);
         startActivity(intent);
+
         overridePendingTransition(0, 0);
+
         ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
     }
 }
