@@ -24,7 +24,6 @@ public class AudioManager {
                 .setAudioAttributes(audioAttributes)
                 .build();
 
-        // Load sounds
         sounds.put("brew", soundPool.load(context, R.raw.sfx_brew, 1));
         sounds.put("tab_switch", soundPool.load(context, R.raw.sfx_tab_switch, 1));
     }

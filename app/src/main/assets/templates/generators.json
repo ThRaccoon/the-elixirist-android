@@ -1,0 +1,71 @@
+[
+  {
+    "id": 1,
+    "icon": "gen_rootwarden",
+    "name": "Rootwarden",
+    "desc": "Grumpy, rooty, and oddly productive.",
+    "baseCost": "1.5e1",
+    "costGrowthRate": 1.15,
+    "yieldPerSecond": "1e-1",
+    "requirements": [
+      {
+        "gate": "VISIBILITY",
+        "condition": "ELIXIR_TOTAL_PRODUCED",
+        "targetId": 0,
+        "threshold": "0e0"
+      },
+      {
+        "gate": "PURCHASABILITY",
+        "condition": "ELIXIR_TOTAL_PRODUCED",
+        "targetId": 0,
+        "threshold": "0e0"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "icon": "gen_gilded_gryphlet",
+    "name": "Gilded Gryphlet",
+    "desc": "Half eagle, half chicken, all alchemist.",
+    "baseCost": "1e2",
+    "costGrowthRate": 1.15,
+    "yieldPerSecond": "1e0",
+    "requirements": [
+      {
+        "gate": "VISIBILITY",
+        "condition": "ELIXIR_TOTAL_PRODUCED",
+        "targetId": 0,
+        "threshold": "2.5e1"
+      },
+      {
+        "gate": "PURCHASABILITY",
+        "condition": "ELIXIR_TOTAL_PRODUCED",
+        "targetId": 0,
+        "threshold": "5e1"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "icon": "gen_the_grandbrewer",
+    "name": "The Grandbrewer",
+    "desc": "Forgot more recipes than you'll ever learn.",
+    "baseCost": "1.1e3",
+    "costGrowthRate": 1.15,
+    "yieldPerSecond": "8e0",
+    "requirements": [
+      {
+        "gate": "VISIBILITY",
+        "condition": "ELIXIR_TOTAL_PRODUCED",
+        "targetId": 0,
+        "threshold": "2.75e2"
+      },
+      {
+        "gate": "PURCHASABILITY",
+        "condition": "ELIXIR_TOTAL_PRODUCED",
+        "targetId": 0,
+        "threshold": "5.5e2"
+      }
+    ]
+  }
+]

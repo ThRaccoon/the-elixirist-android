@@ -6,19 +6,19 @@ import android.content.Context;
 import androidx.room.Room;
 
 import com.theelixirist.f112813.database.AppDatabase;
-import com.theelixirist.f112813.database.repositories.BuffRepository;
+import com.theelixirist.f112813.database.repositories.EffectRepository;
 import com.theelixirist.f112813.database.repositories.CatalystRepository;
 import com.theelixirist.f112813.database.repositories.ChronicleRepository;
 import com.theelixirist.f112813.database.repositories.GeneratorRepository;
 import com.theelixirist.f112813.database.repositories.UpgradeRepository;
 import com.theelixirist.f112813.game.Chronicle;
 import com.theelixirist.f112813.game.GameState;
-import com.theelixirist.f112813.game.definitions.DefinitionRegistry;
+import com.theelixirist.f112813.game.templates.TemplateRegistry;
 import com.theelixirist.f112813.game.managers.AudioManager;
 
 public class ElixiristApp extends Application {
     private AppDatabase database;
-    private DefinitionRegistry definitionRegistry;
+    private TemplateRegistry templateRegistry;
     private GameState gameState;
     private Chronicle chronicle;
     private AudioManager audioManager;
@@ -31,14 +31,14 @@ public class ElixiristApp extends Application {
                 .allowMainThreadQueries()
                 .build();
 
-        definitionRegistry = new DefinitionRegistry(this);
+        templateRegistry = new TemplateRegistry(this);
 
         gameState = new GameState(
-                definitionRegistry,
+                templateRegistry,
                 new GeneratorRepository(database.generatorDao()),
                 new UpgradeRepository(database.upgradeDao()),
                 new CatalystRepository(database.catalystDao()),
-                new BuffRepository(database.buffDao())
+                new EffectRepository(database.effectDao())
         );
         gameState.loadFromDatabase();
 
@@ -59,8 +59,8 @@ public class ElixiristApp extends Application {
         return database;
     }
 
-    public DefinitionRegistry getDefinitionRegistry() {
-        return definitionRegistry;
+    public TemplateRegistry getDefinitionRegistry() {
+        return templateRegistry;
     }
 
     public GameState getGameState() {

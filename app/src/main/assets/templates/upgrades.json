@@ -1,0 +1,200 @@
+[
+  {
+    "id": 10,
+    "icon": "upg_rootwarden_1",
+    "name": "Rootwarden Upgrade I",
+    "desc": "Rootwardens produce twice as much.",
+    "cost": "1e2",
+    "yieldMultiplier": 2,
+    "affectsClick": false,
+    "affectsAllGenerators": false,
+    "affectedGeneratorIds": [
+      1
+    ],
+    "requirements": [
+      {
+        "gate": "VISIBILITY",
+        "condition": "UPGRADE_COUNT_BY_ID",
+        "targetId": 10,
+        "threshold": "0e0"
+      },
+      {
+        "gate": "VISIBILITY",
+        "condition": "GENERATOR_COUNT_BY_ID",
+        "targetId": 1,
+        "threshold": "1e0"
+      },
+      {
+        "gate": "PURCHASABILITY",
+        "condition": "GENERATOR_COUNT_BY_ID",
+        "targetId": 1,
+        "threshold": "1e0"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "icon": "upg_rootwarden_2",
+    "name": "Rootwarden Upgrade II",
+    "desc": "Rootwardens produce twice as much.",
+    "cost": "5e2",
+    "yieldMultiplier": 2,
+    "affectsClick": false,
+    "affectsAllGenerators": false,
+    "affectedGeneratorIds": [
+      1
+    ],
+    "requirements": [
+      {
+        "gate": "VISIBILITY",
+        "condition": "UPGRADE_COUNT_BY_ID",
+        "targetId": 11,
+        "threshold": "0e0"
+      },
+      {
+        "gate": "VISIBILITY",
+        "condition": "GENERATOR_COUNT_BY_ID",
+        "targetId": 1,
+        "threshold": "5e0"
+      },
+      {
+        "gate": "PURCHASABILITY",
+        "condition": "GENERATOR_COUNT_BY_ID",
+        "targetId": 1,
+        "threshold": "5e0"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "icon": "upg_gilded_gryphlet_1",
+    "name": "Gilded Gryphlet Upgrade I",
+    "desc": "Gilded Gryphlets produce twice as much.",
+    "cost": "1e3",
+    "yieldMultiplier": 2,
+    "affectsClick": false,
+    "affectsAllGenerators": false,
+    "affectedGeneratorIds": [
+      2
+    ],
+    "requirements": [
+      {
+        "gate": "VISIBILITY",
+        "condition": "UPGRADE_COUNT_BY_ID",
+        "targetId": 20,
+        "threshold": "0e0"
+      },
+      {
+        "gate": "VISIBILITY",
+        "condition": "GENERATOR_COUNT_BY_ID",
+        "targetId": 2,
+        "threshold": "1e0"
+      },
+      {
+        "gate": "PURCHASABILITY",
+        "condition": "GENERATOR_COUNT_BY_ID",
+        "targetId": 2,
+        "threshold": "1e0"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "icon": "upg_gilded_gryphlet_2",
+    "name": "Gilded Gryphlet Upgrade II",
+    "desc": "Gilded Gryphlets produce twice as much.",
+    "cost": "5e3",
+    "yieldMultiplier": 2,
+    "affectsClick": false,
+    "affectsAllGenerators": false,
+    "affectedGeneratorIds": [
+      2
+    ],
+    "requirements": [
+      {
+        "gate": "VISIBILITY",
+        "condition": "UPGRADE_COUNT_BY_ID",
+        "targetId": 21,
+        "threshold": "0e0"
+      },
+      {
+        "gate": "VISIBILITY",
+        "condition": "GENERATOR_COUNT_BY_ID",
+        "targetId": 2,
+        "threshold": "5e0"
+      },
+      {
+        "gate": "PURCHASABILITY",
+        "condition": "GENERATOR_COUNT_BY_ID",
+        "targetId": 2,
+        "threshold": "5e0"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "icon": "upg_the_grandbrewer_1",
+    "name": "The Grandbrewer Upgrade I",
+    "desc": "The Grandbrewers produce twice as much.",
+    "cost": "1.1e4",
+    "yieldMultiplier": 2,
+    "affectsClick": false,
+    "affectsAllGenerators": false,
+    "affectedGeneratorIds": [
+      3
+    ],
+    "requirements": [
+      {
+        "gate": "VISIBILITY",
+        "condition": "UPGRADE_COUNT_BY_ID",
+        "targetId": 30,
+        "threshold": "0e0"
+      },
+      {
+        "gate": "VISIBILITY",
+        "condition": "GENERATOR_COUNT_BY_ID",
+        "targetId": 3,
+        "threshold": "1e0"
+      },
+      {
+        "gate": "PURCHASABILITY",
+        "condition": "GENERATOR_COUNT_BY_ID",
+        "targetId": 3,
+        "threshold": "1e0"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "icon": "upg_the_grandbrewer_2",
+    "name": "The Grandbrewer Upgrade II",
+    "desc": "The Grandbrewers produce twice as much.",
+    "cost": "5.5e4",
+    "yieldMultiplier": 2,
+    "affectsClick": false,
+    "affectsAllGenerators": false,
+    "affectedGeneratorIds": [
+      3
+    ],
+    "requirements": [
+      {
+        "gate": "VISIBILITY",
+        "condition": "UPGRADE_COUNT_BY_ID",
+        "targetId": 31,
+        "threshold": "0e0"
+      },
+      {
+        "gate": "VISIBILITY",
+        "condition": "GENERATOR_COUNT_BY_ID",
+        "targetId": 3,
+        "threshold": "5e0"
+      },
+      {
+        "gate": "PURCHASABILITY",
+        "condition": "GENERATOR_COUNT_BY_ID",
+        "targetId": 3,
+        "threshold": "5e0"
+      }
+    ]
+  }
+]

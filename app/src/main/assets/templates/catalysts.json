@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "icon": "catalyst_minor",
+    "name": "Minor Catalyst",
+    "desc": "Spawns a random minor effect.",
+    "rollWeight": 60,
+    "despawnDurationMs": 10000,
+    "effectPoolIds": [
+      10,
+      20
+    ]
+  },
+  {
+    "id": 2,
+    "icon": "catalyst_major",
+    "name": "Major Catalyst",
+    "desc": "Spawns a random major effect.",
+    "rollWeight": 30,
+    "despawnDurationMs": 10000,
+    "effectPoolIds": [
+      11,
+      21
+    ]
+  },
+  {
+    "id": 3,
+    "icon": "catalyst_mythic",
+    "name": "Mythic Catalyst",
+    "desc": "Spawns a random mythic effect. Extremely rare.",
+    "rollWeight": 10,
+    "despawnDurationMs": 10000,
+    "effectPoolIds": [
+      12,
+      22
+    ]
+  }
+]
