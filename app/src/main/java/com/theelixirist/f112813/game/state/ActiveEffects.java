@@ -5,7 +5,13 @@ import com.theelixirist.f112813.game.runtime.Effect;
 import java.util.HashMap;
 
 public class ActiveEffects {
-    private final HashMap<Integer, Effect> effects = new HashMap<>();
+    private HashMap<Integer, Effect> effects = new HashMap<>();
+
+    public ActiveEffects(
+            HashMap<Integer, Effect> effects
+    ) {
+        this.effects = effects;
+    }
 
     public HashMap<Integer, Effect> getEffects() {
         return effects;

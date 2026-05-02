@@ -15,7 +15,7 @@ public interface CatalystDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void create(CatalystEntity entity);
 
-    @Query("SELECT * FROM active_catalysts")
+    @Query("SELECT * FROM catalysts")
     List<CatalystEntity> readAll();
 
     @Delete

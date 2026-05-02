@@ -15,7 +15,7 @@ public interface EffectDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void create(EffectEntity entity);
 
-    @Query("SELECT * FROM active_effects")
+    @Query("SELECT * FROM effects")
     List<EffectEntity> readAll();
 
     @Delete

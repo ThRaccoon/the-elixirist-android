@@ -3,15 +3,18 @@ package com.theelixirist.f112813.game.math;
 import org.jetbrains.annotations.NotNull;
 
 public class BigDouble {
+    public static final BigDouble ZERO = new BigDouble(0);
+    public static final BigDouble ONE = new BigDouble(1);
+
     private double significand;
-    private int exponent;
+    private long exponent;
 
     public BigDouble(BigDouble other) {
         significand = other.significand;
         exponent = other.exponent;
     }
 
-    public BigDouble(double significand, int exponent) {
+    public BigDouble(double significand, long exponent) {
         this.significand = significand;
         this.exponent = exponent;
         normalize();
@@ -25,7 +28,7 @@ public class BigDouble {
     public BigDouble(String scientificNotation) {
         String[] parts = scientificNotation.split("e");
         this.significand = Double.parseDouble(parts[0]);
-        this.exponent = Integer.parseInt(parts[1]);
+        this.exponent = Long.parseLong(parts[1]);
         normalize();
     }
 
@@ -38,11 +41,11 @@ public class BigDouble {
         normalize();
     }
 
-    public int getExponent() {
+    public long getExponent() {
         return exponent;
     }
 
-    public void setExponent(int exponent) {
+    public void setExponent(long exponent) {
         this.exponent = exponent;
         normalize();
     }
@@ -51,7 +54,7 @@ public class BigDouble {
         add(other.significand, other.exponent);
     }
 
-    public void add(double significand, int exponent) {
+    public void add(double significand, long exponent) {
         if (significand == 0) { return; }
 
         if (this.significand == 0) {
@@ -60,7 +63,7 @@ public class BigDouble {
             return;
         }
 
-        int expDiff = this.exponent - exponent;
+        long expDiff = this.exponent - exponent;
 
         if (expDiff >= 16) { return; }
 
@@ -79,7 +82,7 @@ public class BigDouble {
         add(-other.significand, other.exponent);
     }
 
-    public void subtract(double significand, int exponent) {
+    public void subtract(double significand, long exponent) {
         add(-significand, exponent);
     }
 
@@ -87,7 +90,7 @@ public class BigDouble {
         multiply(other.significand, other.exponent);
     }
 
-    public void multiply(double significand, int exponent) {
+    public void multiply(double significand, long exponent) {
         if (significand == 0) { return; }
         if (this.significand == 0) { return; }
 
@@ -101,7 +104,7 @@ public class BigDouble {
         divide(other.significand, other.exponent);
     }
 
-    public void divide(double significand, int exponent) {
+    public void divide(double significand, long exponent) {
         if (significand == 0) { return; }
         if (this.significand == 0) { return; }
 

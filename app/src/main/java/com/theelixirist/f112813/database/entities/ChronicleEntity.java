@@ -7,12 +7,9 @@ import androidx.room.PrimaryKey;
 public class ChronicleEntity {
     @PrimaryKey
     public int id = 1;
-
     public long firstPlayedAt;
     public long lastPlayedAt;
-
     public String currentElixirs;
-
     public String totalElixirsBrewed;
     public long totalCatalystsCollected;
     public long totalEffectsTriggered;

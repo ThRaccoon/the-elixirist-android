@@ -1,4 +1,4 @@
-package com.theelixirist.f112813.game.templates.loader;
+package com.theelixirist.f112813.definitions;
 
 import android.content.Context;
 
@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.List;
 
-public class TemplateLoader {
+public class DefinitionLoader {
     private static final Gson GSON = new GsonBuilder()
             .registerTypeAdapter(
                     BigDouble.class,
@@ -24,7 +24,7 @@ public class TemplateLoader {
     public static <T> List<T> load(Context context, String fileName, Class<T> clazz) {
         Type type = TypeToken.getParameterized(List.class, clazz).getType();
         try {
-            InputStream is = context.getAssets().open("templates/" + fileName);
+            InputStream is = context.getAssets().open("data/" + fileName);
             InputStreamReader reader = new InputStreamReader(is);
             return GSON.fromJson(reader, type);
         } catch (Exception e) {

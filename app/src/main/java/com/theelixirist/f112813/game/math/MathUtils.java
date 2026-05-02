@@ -11,11 +11,11 @@ public class MathUtils {
         }
     }
 
-    public static double pow10(int exponent) {
+    public static double pow10(long exponent) {
         if (exponent < 0 || exponent > 92) {
             return Math.pow(10, exponent);
         }
 
-        return PRECOMPUTED_POWERS_OF_TEN[exponent];
+        return PRECOMPUTED_POWERS_OF_TEN[(int) exponent];
     }
 }

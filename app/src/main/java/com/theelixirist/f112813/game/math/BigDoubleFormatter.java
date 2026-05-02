@@ -28,7 +28,7 @@ public class BigDoubleFormatter {
             );
         }
 
-        int suffixIndex = number.getExponent() / 3;
+        int suffixIndex = (int) number.getExponent() / 3;
         if (suffixIndex > SUFFIXES.length) {
             return String.format(
                     Locale.US,

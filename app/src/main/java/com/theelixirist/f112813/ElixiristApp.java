@@ -6,12 +6,18 @@ import android.content.Context;
 import androidx.room.Room;
 
 import com.theelixirist.f112813.database.AppDatabase;
+import com.theelixirist.f112813.definitions.registries.CatalystRegistry;
+import com.theelixirist.f112813.definitions.registries.EffectRegistry;
+import com.theelixirist.f112813.definitions.registries.GeneratorRegistry;
+import com.theelixirist.f112813.definitions.registries.UpgradeRegistry;
 import com.theelixirist.f112813.game.managers.AudioManager;
+import com.theelixirist.f112813.game.managers.SaveManager;
+import com.theelixirist.f112813.game.state.GameState;
+import com.theelixirist.f112813.definitions.DefinitionRegistry;
 
 public class ElixiristApp extends Application {
     private AppDatabase database;
-
-    private AudioManager audioManager;
+    private DefinitionRegistry definitionRegistry;
 
     @Override
     public void onCreate() {
@@ -21,7 +27,12 @@ public class ElixiristApp extends Application {
                 .allowMainThreadQueries()
                 .build();
 
-        audioManager = new AudioManager(this);
+        definitionRegistry = new DefinitionRegistry(
+                new GeneratorRegistry(this),
+                new UpgradeRegistry(this),
+                new CatalystRegistry(this),
+                new EffectRegistry(this)
+        );
     }
 
     public static ElixiristApp get(Context context) {
@@ -32,7 +43,7 @@ public class ElixiristApp extends Application {
         return database;
     }
 
-    public AudioManager getAudioManager() {
-        return audioManager;
+    public DefinitionRegistry getDefinitionRegistry() {
+        return definitionRegistry;
     }
 }
