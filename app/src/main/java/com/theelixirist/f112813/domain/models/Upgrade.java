@@ -1,4 +1,4 @@
-package com.theelixirist.f112813.game.runtime;
+package com.theelixirist.f112813.domain.models;
 
 public class Upgrade {
     private final int id;

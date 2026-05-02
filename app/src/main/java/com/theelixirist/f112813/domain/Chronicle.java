@@ -1,4 +1,4 @@
-package com.theelixirist.f112813.game.state;
+package com.theelixirist.f112813.domain;
 
 import com.theelixirist.f112813.game.math.BigDouble;
 
@@ -24,17 +24,6 @@ public class Chronicle {
         this.totalElixirsBrewed = totalElixirsBrewed;
         this.totalCatalystsCollected = totalCatalystsCollected;
         this.totalEffectsTriggered = totalEffectsTriggered;
-    }
-
-    public static Chronicle createNew() {
-        return new Chronicle(
-                System.currentTimeMillis(),
-                System.currentTimeMillis(),
-                BigDouble.ZERO,
-                BigDouble.ZERO,
-                0,
-                0
-        );
     }
 
     public long getFirstPlayedAt() {

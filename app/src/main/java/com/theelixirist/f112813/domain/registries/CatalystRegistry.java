@@ -1,15 +1,13 @@
-package com.theelixirist.f112813.game.state;
+package com.theelixirist.f112813.domain.registries;
 
-import com.theelixirist.f112813.game.runtime.Catalyst;
+import com.theelixirist.f112813.domain.models.Catalyst;
 
 import java.util.HashMap;
 
-public class ActiveCatalysts {
-    private HashMap<Integer, Catalyst> catalysts = new HashMap<>();
+public class CatalystRegistry {
+    private final HashMap<Integer, Catalyst> catalysts;
 
-    public ActiveCatalysts(
-            HashMap<Integer, Catalyst> catalysts
-    ) {
+    public CatalystRegistry(HashMap<Integer, Catalyst> catalysts) {
         this.catalysts = catalysts;
     }
 

@@ -1,15 +1,13 @@
-package com.theelixirist.f112813.game.state;
+package com.theelixirist.f112813.domain.registries;
 
-import com.theelixirist.f112813.game.runtime.Effect;
+import com.theelixirist.f112813.domain.models.Effect;
 
 import java.util.HashMap;
 
-public class ActiveEffects {
-    private HashMap<Integer, Effect> effects = new HashMap<>();
+public class EffectRegistry {
+    private final HashMap<Integer, Effect> effects;
 
-    public ActiveEffects(
-            HashMap<Integer, Effect> effects
-    ) {
+    public EffectRegistry(HashMap<Integer, Effect> effects) {
         this.effects = effects;
     }
 

@@ -1,8 +1,7 @@
-package com.theelixirist.f112813.game.runtime;
+package com.theelixirist.f112813.domain.models;
 
 public class Generator {
     private final int id;
-
     private int currentCount;
 
     public Generator(

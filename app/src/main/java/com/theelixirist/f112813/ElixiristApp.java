@@ -6,13 +6,10 @@ import android.content.Context;
 import androidx.room.Room;
 
 import com.theelixirist.f112813.database.AppDatabase;
-import com.theelixirist.f112813.definitions.registries.CatalystRegistry;
-import com.theelixirist.f112813.definitions.registries.EffectRegistry;
-import com.theelixirist.f112813.definitions.registries.GeneratorRegistry;
-import com.theelixirist.f112813.definitions.registries.UpgradeRegistry;
-import com.theelixirist.f112813.game.managers.AudioManager;
-import com.theelixirist.f112813.game.managers.SaveManager;
-import com.theelixirist.f112813.game.state.GameState;
+import com.theelixirist.f112813.definitions.registries.CatalystDefinitionRegistry;
+import com.theelixirist.f112813.definitions.registries.EffectDefinitionRegistry;
+import com.theelixirist.f112813.definitions.registries.GeneratorDefinitionRegistry;
+import com.theelixirist.f112813.definitions.registries.UpgradeDefinitionRegistry;
 import com.theelixirist.f112813.definitions.DefinitionRegistry;
 
 public class ElixiristApp extends Application {
@@ -28,10 +25,10 @@ public class ElixiristApp extends Application {
                 .build();
 
         definitionRegistry = new DefinitionRegistry(
-                new GeneratorRegistry(this),
-                new UpgradeRegistry(this),
-                new CatalystRegistry(this),
-                new EffectRegistry(this)
+                new GeneratorDefinitionRegistry(this),
+                new UpgradeDefinitionRegistry(this),
+                new CatalystDefinitionRegistry(this),
+                new EffectDefinitionRegistry(this)
         );
     }
 

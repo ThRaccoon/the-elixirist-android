@@ -1,7 +1,5 @@
-package com.theelixirist.f112813.game.runtime.requirement;
+package com.theelixirist.f112813.domain;
 
-import com.theelixirist.f112813.game.state.Chronicle;
-import com.theelixirist.f112813.game.state.GameState;
 import com.theelixirist.f112813.game.math.BigDouble;
 
 public class Requirement {

@@ -1,41 +1,41 @@
 package com.theelixirist.f112813.definitions;
 
-import com.theelixirist.f112813.definitions.registries.CatalystRegistry;
-import com.theelixirist.f112813.definitions.registries.EffectRegistry;
-import com.theelixirist.f112813.definitions.registries.GeneratorRegistry;
-import com.theelixirist.f112813.definitions.registries.UpgradeRegistry;
+import com.theelixirist.f112813.definitions.registries.CatalystDefinitionRegistry;
+import com.theelixirist.f112813.definitions.registries.EffectDefinitionRegistry;
+import com.theelixirist.f112813.definitions.registries.GeneratorDefinitionRegistry;
+import com.theelixirist.f112813.definitions.registries.UpgradeDefinitionRegistry;
 
 public class DefinitionRegistry {
-    private final GeneratorRegistry generatorRegistry;
-    private final UpgradeRegistry upgradeRegistry;
-    private final CatalystRegistry catalystRegistry;
-    private final EffectRegistry effectRegistry;
+    private final GeneratorDefinitionRegistry generatorDefinitionRegistry;
+    private final UpgradeDefinitionRegistry upgradeDefinitionRegistry;
+    private final CatalystDefinitionRegistry catalystDefinitionRegistry;
+    private final EffectDefinitionRegistry effectDefinitionRegistry;
 
     public DefinitionRegistry(
-            GeneratorRegistry generatorRegistry,
-            UpgradeRegistry upgradeRegistry,
-            CatalystRegistry catalystRegistry,
-            EffectRegistry effectRegistry
+            GeneratorDefinitionRegistry generatorDefinitionRegistry,
+            UpgradeDefinitionRegistry upgradeDefinitionRegistry,
+            CatalystDefinitionRegistry catalystDefinitionRegistry,
+            EffectDefinitionRegistry effectDefinitionRegistry
     ) {
-        this.generatorRegistry = generatorRegistry;
-        this.upgradeRegistry = upgradeRegistry;
-        this.catalystRegistry = catalystRegistry;
-        this.effectRegistry = effectRegistry;
+        this.generatorDefinitionRegistry = generatorDefinitionRegistry;
+        this.upgradeDefinitionRegistry = upgradeDefinitionRegistry;
+        this.catalystDefinitionRegistry = catalystDefinitionRegistry;
+        this.effectDefinitionRegistry = effectDefinitionRegistry;
     }
 
-    public GeneratorRegistry getGeneratorRegistry() {
-        return generatorRegistry;
+    public GeneratorDefinitionRegistry getGeneratorDefinitionRegistry() {
+        return generatorDefinitionRegistry;
     }
 
-    public UpgradeRegistry getUpgradeRegistry() {
-        return upgradeRegistry;
+    public UpgradeDefinitionRegistry getUpgradeDefinitionRegistry() {
+        return upgradeDefinitionRegistry;
     }
 
-    public CatalystRegistry getCatalystRegistry() {
-        return catalystRegistry;
+    public CatalystDefinitionRegistry getCatalystDefinitionRegistry() {
+        return catalystDefinitionRegistry;
     }
 
-    public EffectRegistry getEffectRegistry() {
-        return effectRegistry;
+    public EffectDefinitionRegistry getEffectDefinitionRegistry() {
+        return effectDefinitionRegistry;
     }
 }

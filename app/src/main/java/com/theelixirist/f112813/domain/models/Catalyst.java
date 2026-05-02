@@ -1,10 +1,8 @@
-package com.theelixirist.f112813.game.runtime;
+package com.theelixirist.f112813.domain.models;
 
 public class Catalyst {
     private final int id;
-
     private long despawnDurationMs;
-
     private final float normalizedPosX;
     private final float normalizedPosY;
 
