@@ -1,6 +1,7 @@
 package com.theelixirist.f112813.domain;
 
-import com.theelixirist.f112813.domain.models.Chronicle;
+import com.theelixirist.f112813.AppContainer;
+import com.theelixirist.f112813.domain.models.Generator;
 import com.theelixirist.f112813.game.math.BigDouble;
 
 public class Requirement {
@@ -53,32 +54,38 @@ public class Requirement {
         return threshold;
     }
 
-    public boolean isMet(GameState gameState, Chronicle chronicle) {
+    public boolean isMet(AppContainer appContainer) {
         switch (condition) {
             // Elixir
             case ELIXIR_TOTAL_PRODUCED: {
-                return false;
+                return appContainer.getChronicle().getTotalElixirsBrewed().compareTo(threshold) >= 0;
             }
 
             // Generator
             case GENERATOR_COUNT_ALL: {
-                return false;
+                BigDouble total = new BigDouble(BigDouble.ZERO);
+                for (Generator g : appContainer.getGeneratorRegistry().getGenerators().values()) {
+                    total.add(g.getCurrentCount(), 0);
+                }
+                return total.compareTo(threshold) >= 0;
             }
             case GENERATOR_COUNT_BY_ID: {
-                return false;
+                Generator g = appContainer.getGeneratorRegistry().getGenerators().get(targetId);
+                if (g == null) return false;
+                return new BigDouble(g.getCurrentCount()).compareTo(threshold) >= 0;
             }
 
             // Upgrade
             case UPGRADE_COUNT_ALL: {
-                return false;
+                return new BigDouble(appContainer.getUpgradeRegistry().getUpgrades().size()).compareTo(threshold) >= 0;
             }
             case UPGRADE_COUNT_BY_ID: {
-                return false;
+                return appContainer.getUpgradeRegistry().getUpgrades().containsKey(targetId);
             }
 
             // Catalyst
             case CATALYST_TOTAL_COLLECTED: {
-                return false;
+                return new BigDouble(appContainer.getChronicle().getTotalCatalystsCollected()).compareTo(threshold) >= 0;
             }
 
             default: {

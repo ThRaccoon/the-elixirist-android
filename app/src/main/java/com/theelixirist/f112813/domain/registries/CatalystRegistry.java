@@ -22,4 +22,8 @@ public class CatalystRegistry {
     public void putCatalyst(Catalyst catalyst) {
         catalysts.put(catalyst.getId(), catalyst);
     }
+
+    public void removeCatalyst(Catalyst catalyst) {
+        catalysts.remove(catalyst.getId());
+    }
 }

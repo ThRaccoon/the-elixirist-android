@@ -22,4 +22,8 @@ public class EffectRegistry {
     public void putEffect(Effect effect) {
         effects.put(effect.getId(), effect);
     }
+
+    public void removeEffect(Effect effect) {
+        effects.remove(effect.getId());
+    }
 }
