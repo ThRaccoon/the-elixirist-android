@@ -14,4 +14,11 @@
 
     // Chronicle
     <string name="chronicle_title">Chronicle</string>
+    <string name="chronicle_current_elixirs">Current Elixirs: %1$s</string>
+    <string name="chronicle_total_brewed">Total Brewed: %1$s</string>
+    <string name="chronicle_yield">Yield/sec: %1$s</string>
+    <string name="chronicle_catalysts">Catalysts Collected: %1$s</string>
+    <string name="chronicle_effects">Effects Triggered: %1$s</string>
+    <string name="chronicle_first_played">Playing since: %1$s</string>
+    <string name="chronicle_last_played">Last Played: %1$s</string>
 </resources>

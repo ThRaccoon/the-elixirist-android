@@ -41,6 +41,7 @@ public class UpgradesFragment extends Fragment {
 
         adapter = new UpgradeMarketAdapter(appContainer, def -> {
             appContainer.getPurchaseSystem().buyUpgrade(def);
+            ElixiristApp.get(requireContext()).getAudioManager().play("brew", 1);
             refreshList();
         });
 

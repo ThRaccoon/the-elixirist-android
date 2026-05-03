@@ -41,6 +41,7 @@ public class GeneratorsFragment extends Fragment {
 
         adapter = new GeneratorMarketAdapter(appContainer, def -> {
             appContainer.getPurchaseSystem().buyGenerator(def);
+            ElixiristApp.get(requireContext()).getAudioManager().play("brew", 1);
             refreshList();
         });
 

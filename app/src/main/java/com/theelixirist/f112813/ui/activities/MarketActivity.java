@@ -65,7 +65,9 @@ public class MarketActivity extends AppCompatActivity {
 
         viewPager.setAdapter(new FragmentStateAdapter(this) {
             @Override
-            public int getItemCount() { return 2; }
+            public int getItemCount() {
+                return 2;
+            }
 
             @NonNull
             @Override
@@ -74,8 +76,15 @@ public class MarketActivity extends AppCompatActivity {
             }
         });
 
-        tabGenerators.setOnClickListener(v -> viewPager.setCurrentItem(0));
-        tabUpgrades.setOnClickListener(v -> viewPager.setCurrentItem(1));
+        tabGenerators.setOnClickListener(v -> {
+            viewPager.setCurrentItem(0);
+            ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
+        });
+
+        tabUpgrades.setOnClickListener(v -> {
+            viewPager.setCurrentItem(1);
+            ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
+        });
 
         viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
