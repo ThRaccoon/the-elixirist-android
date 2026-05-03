@@ -6,8 +6,8 @@ import com.theelixirist.f112813.database.entities.UpgradeEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UpgradeMapper {
-    private UpgradeMapper() {
+public class UpgradeEntityMapper {
+    private UpgradeEntityMapper() {
     }
 
     public static UpgradeEntity toEntity(UpgradeDto dto) {
@@ -22,7 +22,7 @@ public class UpgradeMapper {
         return dto;
     }
 
-    public static List<UpgradeDto> toDtoList(List<UpgradeEntity> entities) {
+    public static List<UpgradeDto> toDtos(List<UpgradeEntity> entities) {
         List<UpgradeDto> dtos = new ArrayList<>();
         for (UpgradeEntity entity : entities) {
             dtos.add(toDto(entity));

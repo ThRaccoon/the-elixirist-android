@@ -6,8 +6,8 @@ import com.theelixirist.f112813.database.entities.GeneratorEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GeneratorMapper {
-    private GeneratorMapper() {
+public class GeneratorEntityMapper {
+    private GeneratorEntityMapper() {
     }
 
     public static GeneratorEntity toEntity(GeneratorDto dto) {
@@ -24,7 +24,7 @@ public class GeneratorMapper {
         return dto;
     }
 
-    public static List<GeneratorDto> toDtoList(List<GeneratorEntity> entities) {
+    public static List<GeneratorDto> toDtos(List<GeneratorEntity> entities) {
         List<GeneratorDto> dtos = new ArrayList<>();
         for (GeneratorEntity entity : entities) {
             dtos.add(toDto(entity));

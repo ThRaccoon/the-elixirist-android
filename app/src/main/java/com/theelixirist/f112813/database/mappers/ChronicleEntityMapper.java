@@ -3,8 +3,8 @@ package com.theelixirist.f112813.database.mappers;
 import com.theelixirist.f112813.database.dtos.ChronicleDto;
 import com.theelixirist.f112813.database.entities.ChronicleEntity;
 
-public class ChronicleMapper {
-    private ChronicleMapper() {
+public class ChronicleEntityMapper {
+    private ChronicleEntityMapper() {
     }
 
     public static ChronicleEntity toEntity(ChronicleDto dto) {

@@ -2,7 +2,7 @@ package com.theelixirist.f112813.database.repositories;
 
 import com.theelixirist.f112813.database.daos.GeneratorDao;
 import com.theelixirist.f112813.database.dtos.GeneratorDto;
-import com.theelixirist.f112813.database.mappers.GeneratorMapper;
+import com.theelixirist.f112813.database.mappers.GeneratorEntityMapper;
 
 import java.util.List;
 
@@ -14,11 +14,11 @@ public class GeneratorRepository {
     }
 
     public void create(GeneratorDto dto) {
-        dao.create(GeneratorMapper.toEntity(dto));
+        dao.create(GeneratorEntityMapper.toEntity(dto));
     }
 
     public List<GeneratorDto> readAll() {
-        return GeneratorMapper.toDtoList(dao.readAll());
+        return GeneratorEntityMapper.toDtos(dao.readAll());
     }
 
     public void updateCurrentCountById(int id, int newCount) {

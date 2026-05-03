@@ -1,5 +1,6 @@
 package com.theelixirist.f112813.domain;
 
+import com.theelixirist.f112813.domain.models.Chronicle;
 import com.theelixirist.f112813.game.math.BigDouble;
 
 public class Requirement {

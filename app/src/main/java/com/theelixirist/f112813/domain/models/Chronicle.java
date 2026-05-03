@@ -1,4 +1,4 @@
-package com.theelixirist.f112813.domain;
+package com.theelixirist.f112813.domain.models;
 
 import com.theelixirist.f112813.game.math.BigDouble;
 

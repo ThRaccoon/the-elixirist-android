@@ -2,7 +2,7 @@ package com.theelixirist.f112813.database.repositories;
 
 import com.theelixirist.f112813.database.daos.EffectDao;
 import com.theelixirist.f112813.database.dtos.EffectDto;
-import com.theelixirist.f112813.database.mappers.EffectMapper;
+import com.theelixirist.f112813.database.mappers.EffectEntityMapper;
 
 import java.util.List;
 
@@ -14,14 +14,18 @@ public class EffectRepository {
     }
 
     public void create(EffectDto dto) {
-        dao.create(EffectMapper.toEntity(dto));
+        dao.create(EffectEntityMapper.toEntity(dto));
     }
 
     public List<EffectDto> readAll() {
-        return EffectMapper.toDtoList(dao.readAll());
+        return EffectEntityMapper.toDtos(dao.readAll());
     }
 
     public void delete(EffectDto dto) {
-        dao.delete(EffectMapper.toEntity(dto));
+        dao.delete(EffectEntityMapper.toEntity(dto));
+    }
+
+    public void upsertAll(List<EffectDto> dtos) {
+        dao.upsertAll(EffectEntityMapper.toEntities(dtos));
     }
 }

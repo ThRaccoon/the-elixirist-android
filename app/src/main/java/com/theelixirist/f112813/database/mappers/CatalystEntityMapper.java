@@ -6,8 +6,8 @@ import com.theelixirist.f112813.database.entities.CatalystEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CatalystMapper {
-    private CatalystMapper() {
+public class CatalystEntityMapper {
+    private CatalystEntityMapper() {
     }
 
     public static CatalystEntity toEntity(CatalystDto dto) {
@@ -19,6 +19,14 @@ public class CatalystMapper {
         return entity;
     }
 
+    public static List<CatalystEntity> toEntities(List<CatalystDto> dtos) {
+        List<CatalystEntity> entities = new ArrayList<>();
+        for (CatalystDto dto : dtos) {
+            entities.add(toEntity(dto));
+        }
+        return entities;
+    }
+
     public static CatalystDto toDto(CatalystEntity entity) {
         CatalystDto dto = new CatalystDto();
         dto.id = entity.id;
@@ -28,7 +36,7 @@ public class CatalystMapper {
         return dto;
     }
 
-    public static List<CatalystDto> toDtoList(List<CatalystEntity> entities) {
+    public static List<CatalystDto> toDtos(List<CatalystEntity> entities) {
         List<CatalystDto> dtos = new ArrayList<>();
         for (CatalystEntity entity : entities) {
             dtos.add(toDto(entity));
