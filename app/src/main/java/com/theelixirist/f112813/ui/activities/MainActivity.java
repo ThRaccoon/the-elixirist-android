@@ -13,8 +13,10 @@ import androidx.core.view.WindowInsetsControllerCompat;
 
 import com.theelixirist.f112813.ElixiristApp;
 import com.theelixirist.f112813.R;
+import com.theelixirist.f112813.domain.models.Chronicle;
 import com.theelixirist.f112813.game.math.BigDouble;
 import com.theelixirist.f112813.game.math.BigDoubleFormatter;
+import com.theelixirist.f112813.game.services.GameTickService;
 import com.theelixirist.f112813.ui.views.PixelPerfectImageButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,16 +28,16 @@ public class MainActivity extends AppCompatActivity {
     ImageButton ibMarket;
     ImageButton ibChronicle;
 
-    // Game Vars
-    BigDouble totalElixirs = new BigDouble(0, 0);
-    BigDouble elixirsPerClick = new BigDouble(1, 0);
-    BigDouble elixirsPerSecond = new BigDouble(0, 0);
+    Chronicle chronicle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+        Intent serviceIntent = new Intent(this, GameTickService.class);
+        startService(serviceIntent);
 
         WindowInsetsControllerCompat windowInsetsController =
                 WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
@@ -50,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         ibMarket = findViewById(R.id.main_ib_market);
         ibChronicle = findViewById(R.id.main_ib_chronicle);
 
+        chronicle = ElixiristApp.get(this).getAppContainer().getChronicle();
+
         updateUI();
 
         ppibElixirSprite.setOnClickListener(v -> onBrew());
@@ -59,7 +63,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onBrew() {
-        incrementElixirs(elixirsPerClick);
+        chronicle.getCurrentElixirs().add(BigDouble.ONE);
+        chronicle.getTotalElixirsBrewed().add(BigDouble.ONE);
+
+        updateUI();
 
         ElixiristApp.get(this).getAudioManager().play("brew", 1);
 
@@ -99,16 +106,11 @@ public class MainActivity extends AppCompatActivity {
         ElixiristApp.get(this).getAudioManager().play("tab_switch", 1);
     }
 
-    private void incrementElixirs(BigDouble amount) {
-        totalElixirs.add(amount);
-        updateUI();
-    }
-
     private void updateUI() {
-        String formattedTotalPotions = BigDoubleFormatter.format(totalElixirs);
-        String formattedPotionsPerSecond = BigDoubleFormatter.format(elixirsPerSecond);
+        String formattedTotalElixirs = BigDoubleFormatter.format(chronicle.getCurrentElixirs());
+        String formattedElixirsPerSecond = BigDoubleFormatter.format(chronicle.getYieldPerSecond());
 
-        tvElixirsCount.setText(getString(R.string.elixirs_count_label, formattedTotalPotions));
-        tvElixirsPerSecond.setText(getString(R.string.elixirs_per_second_label, formattedPotionsPerSecond));
+        tvElixirsCount.setText(getString(R.string.elixirs_count_label, formattedTotalElixirs));
+        tvElixirsPerSecond.setText(getString(R.string.elixirs_per_second_label, formattedElixirsPerSecond));
     }
 }

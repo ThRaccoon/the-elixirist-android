@@ -64,15 +64,15 @@ public class Requirement {
             // Generator
             case GENERATOR_COUNT_ALL: {
                 BigDouble total = new BigDouble(BigDouble.ZERO);
-                for (Generator g : appContainer.getGeneratorRegistry().getGenerators().values()) {
-                    total.add(g.getCurrentCount(), 0);
+                for (Generator generator : appContainer.getGeneratorRegistry().getGenerators().values()) {
+                    total.add(generator.getCurrentCount(), 0);
                 }
                 return total.compareTo(threshold) >= 0;
             }
             case GENERATOR_COUNT_BY_ID: {
-                Generator g = appContainer.getGeneratorRegistry().getGenerators().get(targetId);
-                if (g == null) return false;
-                return new BigDouble(g.getCurrentCount()).compareTo(threshold) >= 0;
+                Generator generator = appContainer.getGeneratorRegistry().getGenerators().get(targetId);
+                if (generator == null) return false;
+                return new BigDouble(generator.getCurrentCount()).compareTo(threshold) >= 0;
             }
 
             // Upgrade

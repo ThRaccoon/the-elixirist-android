@@ -10,6 +10,8 @@ public class Chronicle {
     private long totalCatalystsCollected;
     private long totalEffectsTriggered;
 
+    private BigDouble yieldPerSecond = new BigDouble(BigDouble.ONE);
+
     public Chronicle(
             long firstPlayedAt,
             long lastPlayedAt,
@@ -72,5 +74,14 @@ public class Chronicle {
 
     public void setTotalEffectsTriggered(long totalEffectsTriggered) {
         this.totalEffectsTriggered = totalEffectsTriggered;
+    }
+
+
+    public BigDouble getYieldPerSecond() {
+        return yieldPerSecond;
+    }
+
+    public void setYieldPerSecond(BigDouble yieldPerSecond) {
+        this.yieldPerSecond = yieldPerSecond;
     }
 }

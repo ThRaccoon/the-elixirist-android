@@ -10,7 +10,6 @@ import com.theelixirist.f112813.AppContainer;
 import com.theelixirist.f112813.ElixiristApp;
 import com.theelixirist.f112813.definitions.models.CatalystDefinition;
 import com.theelixirist.f112813.definitions.registries.CatalystDefinitionRegistry;
-import com.theelixirist.f112813.definitions.registries.EffectDefinitionRegistry;
 import com.theelixirist.f112813.domain.models.Catalyst;
 import com.theelixirist.f112813.domain.models.Chronicle;
 import com.theelixirist.f112813.domain.models.Effect;
@@ -20,7 +19,6 @@ import com.theelixirist.f112813.game.math.BigDouble;
 import com.theelixirist.f112813.game.systems.YieldSystem;
 import com.theelixirist.f112813.save.SaveManager;
 import com.theelixirist.f112813.save.handlers.CatalystSaveHandler;
-import com.theelixirist.f112813.save.handlers.ChronicleSaveHandler;
 import com.theelixirist.f112813.save.handlers.EffectSaveHandler;
 
 import java.util.ArrayList;
@@ -33,7 +31,6 @@ public class GameTickService extends Service {
     private static final long TICK_INTERVAL_MS = 1000L;
     private static final long SAVE_INTERVAL_MS = 60_000L;
 
-    // Catalyst spawns randomly between 3 and 5 minutes
     private static final long CATALYST_SPAWN_MIN_MS = 180_000L;
     private static final long CATALYST_SPAWN_MAX_MS = 300_000L;
 
@@ -45,11 +42,9 @@ public class GameTickService extends Service {
     private CatalystRegistry catalystRegistry;
     private EffectRegistry effectRegistry;
     private CatalystDefinitionRegistry catalystDefinitionRegistry;
-    private EffectDefinitionRegistry effectDefinitionRegistry;
     private SaveManager saveManager;
     private CatalystSaveHandler catalystSaveHandler;
     private EffectSaveHandler effectSaveHandler;
-    private ChronicleSaveHandler chronicleSaveHandler;
 
     private final Random random = new Random();
     private long msSinceLastSave = 0;
@@ -75,11 +70,9 @@ public class GameTickService extends Service {
         catalystRegistry = container.getCatalystRegistry();
         effectRegistry = container.getEffectRegistry();
         catalystDefinitionRegistry = container.getCatalystDefinitionRegistry();
-        effectDefinitionRegistry = container.getEffectDefinitionRegistry();
         saveManager = container.getSaveManager();
         catalystSaveHandler = container.getCatalystSaveHandler();
         effectSaveHandler = container.getEffectSaveHandler();
-        chronicleSaveHandler = container.getChronicleSaveHandler();
 
         nextCatalystSpawnMs = rollNextCatalystSpawn();
     }
@@ -136,8 +129,8 @@ public class GameTickService extends Service {
 
     private void tick() {
         tickYield();
-        tickEffects();
-        tickCatalysts();
+        // tickEffects();
+        // tickCatalysts();
         tickSave();
     }
 
@@ -145,6 +138,7 @@ public class GameTickService extends Service {
         BigDouble yieldThisTick = yieldSystem.calculateYieldPerSecond();
         chronicle.getCurrentElixirs().add(yieldThisTick);
         chronicle.getTotalElixirsBrewed().add(yieldThisTick);
+        chronicle.setYieldPerSecond(yieldThisTick);
     }
 
     private void tickEffects() {

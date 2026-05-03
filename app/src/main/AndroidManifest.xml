@@ -29,5 +29,7 @@
         <activity
             android:name=".ui.activities.ChronicleActivity"
             android:exported="false" />
+
+        <service android:name=".game.services.GameTickService" />
     </application>
 </manifest>
