@@ -2,6 +2,8 @@ package com.theelixirist.f112813.ui.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -29,6 +31,15 @@ public class MainActivity extends AppCompatActivity {
     ImageButton ibChronicle;
 
     Chronicle chronicle;
+
+    private final Handler uiHandler = new Handler(Looper.getMainLooper());
+    private final Runnable uiUpdateRunnable = new Runnable() {
+        @Override
+        public void run() {
+            updateUI();
+            uiHandler.postDelayed(this, 1000);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,9 +73,28 @@ public class MainActivity extends AppCompatActivity {
         ibChronicle.setOnClickListener(v -> onChronicleClicked());
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        uiHandler.removeCallbacks(uiUpdateRunnable);
+        uiHandler.post(uiUpdateRunnable);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        uiHandler.removeCallbacks(uiUpdateRunnable);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        ElixiristApp.get(this).getAppContainer().getSaveManager().save();
+    }
+
     private void onBrew() {
-        chronicle.getCurrentElixirs().add(BigDouble.ONE);
-        chronicle.getTotalElixirsBrewed().add(BigDouble.ONE);
+        chronicle.getCurrentElixirs().add(1, 0);
+        chronicle.getTotalElixirsBrewed().add(1, 0);
 
         updateUI();
 

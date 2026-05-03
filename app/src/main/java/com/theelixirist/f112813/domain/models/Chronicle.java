@@ -10,7 +10,7 @@ public class Chronicle {
     private long totalCatalystsCollected;
     private long totalEffectsTriggered;
 
-    private BigDouble yieldPerSecond = new BigDouble(BigDouble.ONE);
+    private BigDouble yieldPerSecond = new BigDouble(0, 0);
 
     public Chronicle(
             long firstPlayedAt,

@@ -44,7 +44,7 @@ public class YieldSystem {
     public BigDouble calculateYieldPerSecond() {
         Collection<Effect> effects = effectRegistry.getEffects().values();
 
-        BigDouble total = new BigDouble(BigDouble.ZERO);
+        BigDouble total = new BigDouble(0, 0);
 
         for (Generator generator : generatorRegistry.getGenerators().values()) {
             GeneratorDefinition def = generatorDefinitionRegistry.getGeneratorDefinition(generator.getId());

@@ -3,9 +3,6 @@ package com.theelixirist.f112813.game.math;
 import org.jetbrains.annotations.NotNull;
 
 public class BigDouble {
-    public static final BigDouble ZERO = new BigDouble(0);
-    public static final BigDouble ONE = new BigDouble(1);
-
     private double significand;
     private long exponent;
 

@@ -28,8 +28,8 @@ public class ChronicleSaveHandler implements Saveable<Chronicle> {
             return new Chronicle(
                     System.currentTimeMillis(),
                     System.currentTimeMillis(),
-                    BigDouble.ZERO,
-                    BigDouble.ZERO,
+                    new BigDouble(0, 0),
+                    new BigDouble(0, 0),
                     0,
                     0
             );

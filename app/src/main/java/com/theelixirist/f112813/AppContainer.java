@@ -19,6 +19,7 @@ import com.theelixirist.f112813.domain.registries.CatalystRegistry;
 import com.theelixirist.f112813.domain.registries.EffectRegistry;
 import com.theelixirist.f112813.domain.registries.GeneratorRegistry;
 import com.theelixirist.f112813.domain.registries.UpgradeRegistry;
+import com.theelixirist.f112813.game.systems.PurchaseSystem;
 import com.theelixirist.f112813.save.SaveManager;
 import com.theelixirist.f112813.save.handlers.CatalystSaveHandler;
 import com.theelixirist.f112813.save.handlers.ChronicleSaveHandler;
@@ -44,6 +45,8 @@ public class AppContainer {
     private final UpgradeRegistry upgradeRegistry;
     private final CatalystRegistry catalystRegistry;
     private final EffectRegistry effectRegistry;
+
+    private final PurchaseSystem purchaseSystem;
 
     public AppContainer(Context context) {
         AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, "elixirist.db")
@@ -80,11 +83,13 @@ public class AppContainer {
         effectSaveHandler.setEffectRegistry(effectRegistry);
 
         saveManager = new SaveManager();
+        saveManager.registerHandler(chronicleSaveHandler);
         saveManager.registerHandler(catalystSaveHandler);
         saveManager.registerHandler(generatorSaveHandler);
         saveManager.registerHandler(upgradeSaveHandler);
         saveManager.registerHandler(effectSaveHandler);
-        saveManager.registerHandler(chronicleSaveHandler);
+
+        purchaseSystem = new PurchaseSystem(this);
     }
 
     public GeneratorDefinitionRegistry getGeneratorDefinitionRegistry() {
@@ -145,5 +150,9 @@ public class AppContainer {
 
     public EffectSaveHandler getEffectSaveHandler() {
         return effectSaveHandler;
+    }
+
+    public PurchaseSystem getPurchaseSystem() {
+        return purchaseSystem;
     }
 }

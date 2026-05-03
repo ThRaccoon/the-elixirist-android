@@ -8,6 +8,7 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/market_ll_topbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -26,12 +27,76 @@
             android:textSize="34sp" />
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <LinearLayout
+        android:id="@+id/market_ll_tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true" />
+        android:layout_below="@id/market_ll_topbar"
+        android:background="#4D000000"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/market_tab_generators"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/market_tv_tab_generators"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/generators_tab"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <View
+                android:id="@+id/market_dot_generators"
+                android:layout_width="4dp"
+                android:layout_height="4dp"
+                android:layout_marginTop="2dp"
+                android:background="#FFFFFF"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/market_tab_upgrades"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/market_tv_tab_upgrades"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/upgrades_tab"
+                android:textColor="#80FFFFFF"
+                android:textSize="16sp" />
+
+            <View
+                android:id="@+id/market_dot_upgrades"
+                android:layout_width="4dp"
+                android:layout_height="4dp"
+                android:layout_marginTop="2dp"
+                android:background="#FFFFFF"
+                android:visibility="invisible" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/market_vp2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/market_ll_bottombar"
+        android:layout_below="@id/market_ll_tabs" />
 
     <LinearLayout
+        android:id="@+id/market_ll_bottombar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

@@ -63,7 +63,7 @@ public class Requirement {
 
             // Generator
             case GENERATOR_COUNT_ALL: {
-                BigDouble total = new BigDouble(BigDouble.ZERO);
+                BigDouble total = new BigDouble(0, 0);
                 for (Generator generator : appContainer.getGeneratorRegistry().getGenerators().values()) {
                     total.add(generator.getCurrentCount(), 0);
                 }

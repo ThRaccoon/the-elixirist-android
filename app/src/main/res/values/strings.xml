@@ -9,6 +9,8 @@
 
     // Market
     <string name="market_title">Market</string>
+    <string name="generators_tab">Generators</string>
+    <string name="upgrades_tab">Upgrades</string>
 
     // Chronicle
     <string name="chronicle_title">Chronicle</string>
