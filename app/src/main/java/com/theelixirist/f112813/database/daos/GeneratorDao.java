@@ -17,6 +17,6 @@ public interface GeneratorDao {
     @Query("SELECT * FROM generators")
     List<GeneratorEntity> readAll();
 
-    @Query("UPDATE generators SET currentCount = :currentCount WHERE id = :id")
-    void updateCurrentCountById(int id, int currentCount);
+    @Query("UPDATE generators SET currentCount = :newCount WHERE id = :id")
+    void updateCurrentCountById(int id, int newCount);
 }

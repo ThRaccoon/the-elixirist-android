@@ -8,25 +8,24 @@ import com.theelixirist.f112813.domain.registries.EffectRegistry;
 import com.theelixirist.f112813.save.Saveable;
 
 import java.util.HashMap;
-import java.util.Map;
 
-public class EffectSaveHandler implements Saveable<Map<Integer, Effect>> {
-    private final EffectRegistry effectRegistry;
+public class EffectSaveHandler implements Saveable<HashMap<Integer, Effect>> {
+    private EffectRegistry effectRegistry;
     private final EffectRepository effectRepository;
 
-    public EffectSaveHandler(EffectRegistry effectRegistry, EffectRepository effectRepository) {
-        this.effectRegistry = effectRegistry;
+    public EffectSaveHandler(EffectRepository effectRepository) {
         this.effectRepository = effectRepository;
     }
 
+    public void setEffectRegistry(EffectRegistry effectRegistry) {
+        this.effectRegistry = effectRegistry;
+    }
+
     @Override
-    public Map<Integer, Effect> load() {
+    public HashMap<Integer, Effect> load() {
         HashMap<Integer, Effect> effects = new HashMap<>();
         for (EffectDto dto : effectRepository.readAll()) {
-            effects.put(dto.id, new Effect(
-                    dto.id,
-                    dto.durationMs
-            ));
+            effects.put(dto.id, EffectDomainMapper.toDomain(dto));
         }
         return effects;
     }

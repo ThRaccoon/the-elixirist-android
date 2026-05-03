@@ -8,18 +8,17 @@ import com.theelixirist.f112813.domain.registries.CatalystRegistry;
 import com.theelixirist.f112813.save.Saveable;
 
 import java.util.HashMap;
-import java.util.Map;
 
-public class CatalystSaveHandler implements Saveable<Map<Integer, Catalyst>> {
-    private final CatalystRegistry catalystRegistry;
+public class CatalystSaveHandler implements Saveable<HashMap<Integer, Catalyst>> {
+    private CatalystRegistry catalystRegistry;
     private final CatalystRepository catalystRepository;
 
-    public CatalystSaveHandler(
-            CatalystRegistry catalystRegistry,
-            CatalystRepository catalystRepository
-    ) {
-        this.catalystRegistry = catalystRegistry;
+    public CatalystSaveHandler(CatalystRepository catalystRepository) {
         this.catalystRepository = catalystRepository;
+    }
+
+    public void setCatalystRegistry(CatalystRegistry catalystRegistry) {
+        this.catalystRegistry = catalystRegistry;
     }
 
     @Override

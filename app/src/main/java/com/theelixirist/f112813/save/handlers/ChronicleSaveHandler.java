@@ -8,12 +8,15 @@ import com.theelixirist.f112813.game.math.BigDouble;
 import com.theelixirist.f112813.save.Saveable;
 
 public class ChronicleSaveHandler implements Saveable<Chronicle> {
-    private final Chronicle chronicle;
+    private Chronicle chronicle;
     private final ChronicleRepository chronicleRepository;
 
-    ChronicleSaveHandler(Chronicle chronicle, ChronicleRepository chronicleRepository) {
-        this.chronicle = chronicle;
+    public ChronicleSaveHandler(ChronicleRepository chronicleRepository) {
         this.chronicleRepository = chronicleRepository;
+    }
+
+    public void setChronicle(Chronicle chronicle) {
+        this.chronicle = chronicle;
     }
 
     @Override
