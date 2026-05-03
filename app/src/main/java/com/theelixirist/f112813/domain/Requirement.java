@@ -80,7 +80,9 @@ public class Requirement {
                 return new BigDouble(appContainer.getUpgradeRegistry().getUpgrades().size()).compareTo(threshold) >= 0;
             }
             case UPGRADE_COUNT_BY_ID: {
-                return appContainer.getUpgradeRegistry().getUpgrades().containsKey(targetId);
+                boolean owned = appContainer.getUpgradeRegistry().getUpgrades().containsKey(targetId);
+                int count = owned ? 1 : 0;
+                return new BigDouble(count).compareTo(threshold) >= 0;
             }
 
             // Catalyst

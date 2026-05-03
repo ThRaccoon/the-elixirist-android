@@ -71,6 +71,11 @@ public class UpgradesFragment extends Fragment {
                 def -> def.requirements,
                 appContainer
         );
+
+        visible.removeIf(def ->
+                appContainer.getUpgradeRegistry().getUpgrades().containsKey(def.id)
+        );
+
         adapter.setItems(visible);
     }
 }
