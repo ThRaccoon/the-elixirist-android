@@ -82,6 +82,7 @@ public class ChronicleActivity extends AppCompatActivity {
 
     private void onMainClicked() {
         Intent intent = new Intent(ChronicleActivity.this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
 
         overridePendingTransition(0, 0);
@@ -91,6 +92,7 @@ public class ChronicleActivity extends AppCompatActivity {
 
     private void onMarketClicked() {
         Intent intent = new Intent(ChronicleActivity.this, MarketActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
 
         overridePendingTransition(0, 0);

@@ -99,6 +99,7 @@ public class MarketActivity extends AppCompatActivity {
 
     private void onMainClicked() {
         Intent intent = new Intent(MarketActivity.this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
 
         overridePendingTransition(0, 0);
@@ -112,6 +113,7 @@ public class MarketActivity extends AppCompatActivity {
 
     private void onChronicleClicked() {
         Intent intent = new Intent(MarketActivity.this, ChronicleActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
 
         overridePendingTransition(0, 0);
